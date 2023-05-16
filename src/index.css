@@ -50,7 +50,7 @@ align-items: flex-start;
   }
 }
 
-.info {
+/* .info {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -64,4 +64,4 @@ align-items: flex-start;
 }
 .info-link:hover {
   text-shadow: 0 0 7px yellow;
-}
+} */

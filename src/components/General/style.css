@@ -125,6 +125,7 @@ header .search-block {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    margin-left: 100px;
 }
 
 .footer__nav-list {
