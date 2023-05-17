@@ -1,0 +1,31 @@
+import {useState, useContext, useEffect} from "react";
+import {Row, Col,Carousel} from "react-bootstrap";
+/* import {BsCard} from "" */
+
+const Slider = () => {
+    const {baseGoods} = useContext(Ctx);
+    const [gds, setGds] = useState(baseGoods);
+
+    useEffect(() => {
+        if (!gds.length) {
+            setGds(basegoods.reduce((acc,el) => {
+                if (acc.length < 5) {
+                    acc.push(el)
+                }
+                return acc;
+            }, []))
+        }
+    }, [gds])
+    
+    return <Carousel controls={false} interval={5000}>
+    <Carousel.Item></Carousel.Item>
+    <Carousel.Item></Carousel.Item>
+    <Carousel.Item></Carousel.Item>
+    <Carousel.Item></Carousel.Item>
+    <Carousel.Item></Carousel.Item>
+    </Carousel>
+}
+
+
+
+export default Slider;

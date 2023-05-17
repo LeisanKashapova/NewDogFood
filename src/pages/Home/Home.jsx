@@ -1,5 +1,8 @@
 import {Link} from "react-router-dom";
 import {Journals} from "react-bootstrap-icons";
+import Slider from ""
+
+
 // import Carousele from "./Carousel";
 // import { Carousel } from "bootstrap";
 // import Product from "../Product";
@@ -20,6 +23,7 @@ const Home = ({user, setActive}) => {
 						<Journals style={{marginRight: "10px"}}/>
 						Каталог
 						</Link>}
+						
 						{!user && <>
 					<span className="info-link" onClick={() => setActive(true)}>Авторизуйтесь, чтобы получить доступ к сайту</span></>}
 				</div>
@@ -62,7 +66,7 @@ const Home = ({user, setActive}) => {
 		</div>
 
 		</div>
-
+		<Slider/>
 		
 		</>
 	)

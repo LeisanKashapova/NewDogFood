@@ -1,6 +1,6 @@
 import {Link} from "react-router-dom";
 import Logo from "../../assents/images/Logo";
-
+// import { createContext } from "react";
 
 import {
     StarFill,
@@ -32,6 +32,11 @@ const Header = ({
     //     localStorage.removeItem("userStore");
     //     upd(null); убираем функцию логаут в шапке так как она  уже в лич. каб
     // }
+// export default const Ctx = createContext({});
+
+
+
+
     return <header>
         <Logo />
         <div className="search-block">
