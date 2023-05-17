@@ -23,6 +23,7 @@ const Card = ({
     pictures,
     price,
     tags,
+    user,
     _id, 
    
 }) => {

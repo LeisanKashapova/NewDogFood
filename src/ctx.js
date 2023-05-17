@@ -2,6 +2,6 @@ import {createContext} from "react";
 
 const Ctx = createContext({
     searchResult: "",
-    setBaseData: () => {}
+    setBaseData: () => {},
 });
 export default Ctx;

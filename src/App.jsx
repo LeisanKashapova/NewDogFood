@@ -6,7 +6,7 @@ import Modal from "./components/Modal";
 import {Header, Footer} from "./components/General"; // index.jsx
 // Подключаем странички
 import Home from "./pages/Home/Home";
-import Catalog from "./pages/Catalog";
+import Catalog from "./pages/Catalog/Catalog";
 import OldPage from "./pages/Old";
 import Profile from "./pages/Profile";
 import Product from "./pages/Product";
@@ -71,7 +71,8 @@ const App = () => {
         <Ctx.Provider value={{
             searchResult,
             setSearchResult,
-            setBaseData
+            setBaseData,
+            baseData
         }}>
             <Header 
                 user={user} 

@@ -1,7 +1,8 @@
 import {useContext} from "react";
 import {Container, Row, Col} from "react-bootstrap";
-import BsCard from "../components/BsCard";
-import Ctx from "../ctx";
+import BsCard from "../../components/BsCard";
+import Ctx from "../../ctx";
+import "./Catalog.css";
 
 
 const Catalog = ({goods, userId}) => {

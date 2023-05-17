@@ -13,9 +13,7 @@ h3 {
     font-size: small;
     color: black;
 }
-/* .container-info {
-    width: 200px;
-} */
+
 .info-link {
     padding-top: 30px;
     padding-bottom: 30px;
@@ -33,25 +31,25 @@ h3 {
     grid-template: repeat(3, 1fr);
   }
   .banner {
-    width: 1100px;
+    width: 1260px;
     background-size: cover;
     background-position: center;
     height: 200px;
     background-color: white;
     border-radius: 8px;
     display: flex;
-	  justify-content: flex-end;
-	  align-items: center;
+	justify-content: flex-end;
+	align-items: center;
     align-content: center;
-	  flex-direction: column;
-	  background-image: url("https://i.yapx.ru/WCiXE.png");
+	flex-direction: column;
+	background-image: url("https://i.yapx.ru/WCiXE.png");
     background-repeat: no-repeat; 
 }
-.pre-banner {
+.pro-banner {
     display: flex;
-	  justify-content: center;
-	  align-items: center;
-    background-color: #ffe44d;
+	justify-content: center;
+	align-items: center;
+    background-color: white;
 }
 .wrapper-promotional {
     background-color: white;
@@ -61,41 +59,55 @@ h3 {
     display: grid;
     gap: 50px;
     grid-template-columns: repeat(2, 1fr);
+    margin-bottom: 50px;
 }
 .promotional-rigth {
     background-image: url("https://i.yapx.ru/WCicF.png");
-    width: 500px;
+    width: 605px;
     background-size: cover;
     background-position: center;
     height: 180px;
     border-radius: 8px;
+    margin-left: 180px;
+    
 }
 .promotional-left {
     background-image: url("https://i.yapx.ru/WCicr.png");
-    width: 500px;
+    width: 605px;
     background-size: cover;
     background-position: center;
     height: 180px;
     border-radius: 8px;
+   
 }
 .promotional-bottom {
     display: grid;
     gap: 50px;
     grid-template-columns: repeat(2, 1fr);
+    margin-bottom: 50px;
 }
 .promotional-rigth-1 {
     border-radius: 8px;
-    width: 500px;
+    width: 605px;
     background-size: cover;
     background-position: center;
     height: 180px;
+    margin-left: 180px;
     background-image: url("https://i.yapx.ru/WCic9.png");
 }
 .promotional-left-1 {
-    width: 500px;
+    width: 605px;
     background-size: cover;
     background-position: center;
     height: 180px;
     border-radius: 8px;
     background-image: url("https://i.yapx.ru/WCijK.png");
+}
+/* Планшеты */
+@media (max-width: 1024px) {
+
+}
+/* Мобильные устройства */
+@media (max-width: 720px) {
+    
 }

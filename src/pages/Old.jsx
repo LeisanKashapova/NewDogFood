@@ -7,6 +7,7 @@ import Ctx from "../ctx";
 const promoData = ["=)", "^_^", "O_o", "x_x", "=(", ";(", "0l0"];
 
 const OldPage = ({goods}) => {
+    const {searchResult} = useContext(Ctx);
 return  <>
     <h1>Старые данные</h1>
 <nav>

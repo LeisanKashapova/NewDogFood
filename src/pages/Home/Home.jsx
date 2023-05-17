@@ -1,6 +1,6 @@
 import {Link} from "react-router-dom";
 import {Journals} from "react-bootstrap-icons";
-import Slider from ""
+import Slider from "../../components/Slider/Slider";
 
 
 // import Carousele from "./Carousel";
@@ -29,18 +29,16 @@ const Home = ({user, setActive}) => {
 				</div>
 			</div>
 
-{/* <div className="carousel">
 
-</div>    */}
 <div className="main-container">
-		<div className="pre-banner">
+		<div className="pro-banner">
 		<div className="banner">
 				{/* <span>Подарок за первый заказ!</span>
 				<span>Wagg</span> */}
 				
 		</div>
 		</div>
-
+		<Slider desktop={3} mobile={2}/>
 		{/* <div className="wrapper-promotional"> */}
 			<div className="promotional-container">
 				<div className="promotional-rigth"></div>
@@ -57,7 +55,7 @@ const Home = ({user, setActive}) => {
 
 
 
-		<div className="pre-banner">
+		<div className="pro-banner">
 		<div className="banner">
 				{/* <span>Подарок за первый заказ!</span>
 				<span>Wagg</span> */}
