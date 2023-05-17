@@ -15,10 +15,10 @@ import Search from "../Search";
 
 const Header = ({
     user, 
-    upd, 
+    // upd, 
     searchArr, 
     setGoods, 
-    setSearchResult,
+    // setSearchResult,
     setModalOpen
 }) => {
     const login = () => {
@@ -28,11 +28,7 @@ const Header = ({
        
         // console.log(login);
     }
-    // const logout = () => {
-    //     localStorage.removeItem("userStore");
-    //     upd(null); убираем функцию логаут в шапке так как она  уже в лич. каб
-    // }
-// export default const Ctx = createContext({});
+   
 
 
 
@@ -43,7 +39,7 @@ const Header = ({
             <Search 
             data={searchArr}
             setGoods={setGoods}
-            setSearchResult={setSearchResult}
+          
             />
         </div>
         <nav className="header__menu">

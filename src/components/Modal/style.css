@@ -10,15 +10,15 @@
     justify-content: center;
     align-items: center;
 }
-.modal {
+.modal__custom {
     width: 300px;
     background-color: beige;
     padding: 20px;
     box-sizing: border-box;
     position: relative;
     border-radius: 8px;
-    /* display: block;
-    height: auto; */
+    display: block;
+    height: auto; 
 }
 .modal-close {
     position: absolute;
@@ -42,7 +42,7 @@ h3 {
     margin: 0;
     margin-bottom: 20px;
 }
-.modal form {
+.modal__custom form {
     display: grid;
     gap: 10px;
 }

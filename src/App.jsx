@@ -1,9 +1,7 @@
-import {useState, useEffect} from "react";
+import {useState, useEffect, createContext} from "react";
 import {Routes, Route} from "react-router-dom";
 
-/* SPA - Single Page Application - Приложение с одной страницей */
-// import testData from "./assents/data.json";
-// Подключаем компоненты
+import Ctx from "./ctx"
 import Modal from "./components/Modal";
 import {Header, Footer} from "./components/General"; // index.jsx
 // Подключаем странички
@@ -12,6 +10,7 @@ import Catalog from "./pages/Catalog";
 import OldPage from "./pages/Old";
 import Profile from "./pages/Profile";
 import Product from "./pages/Product";
+import AddProduct from "./pages/AddProduct";
 // import Carousel from "./pages/Home/Carousel";
 
 // import Start from "./pages/start/Start";
@@ -60,13 +59,25 @@ const App = () => {
         setGoods(baseData)
     }, [baseData])
     return (
-        <>
+              // объявляем контекст в приложении
+        /*
+        * age = 2
+        * value = {
+        *   name: "User",
+        *   setName: function(){}
+        *   age => age: age
+        * }
+        * */
+        <Ctx.Provider value={{
+            searchResult,
+            setSearchResult,
+            setBaseData
+        }}>
             <Header 
                 user={user} 
                 upd={setUser} 
                 searchArr={baseData}
                 setGoods={setGoods} 
-                setSearchResult={setSearchResult}
                 setModalOpen={setModalOpen}
             />
             <main>
@@ -76,13 +87,12 @@ const App = () => {
                     <Route path="/catalog" element={
                         <Catalog 
                             goods={goods}
-                            setBaseData={setBaseData}
+                            
                             userId={userId}
                         />
                     }/>
                     <Route path="/old" element={
                         <OldPage 
-                            searchText={searchResult}
                             goods={goods}
                         />
                     }/>
@@ -104,6 +114,7 @@ const App = () => {
                     */}
                     
                     <Route path="/product/:id" element={<Product />}/>
+                    <Route path="/add/product" element={<AddProduct/>}/>
                 </Routes>
             </main>
             <Footer/>
@@ -112,7 +123,7 @@ const App = () => {
                 setIsActive={setModalOpen}
                 setUser={setUser}
             />
-        </>
+         </Ctx.Provider>
     )
 }
 export default App;
