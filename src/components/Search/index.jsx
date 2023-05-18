@@ -8,27 +8,21 @@ const Search = ({data, setGoods}) => {
 	const navigate = useNavigate();
 	const [text, setText] = useState("");
 	const [num, setNum] = useState(0);
-	// в переменной text находится пустая строка
+	
 	const changeValue = (e) => {
 		navigate("/catalog");
 		let val = e.target.value.toLowerCase();
-		// console.log(e.target.value);
+		
 		setText(val);
-		// setNum(num + 1); // num++ => 0 => 0+1
-		/*
-			При вводе текста в строку поиска, мы сопоставляем эту строку с данными из массива data
-			В консоли выведем новый масивв с подходящими названиями
-		*/
-		// setNum(data.filter(el => el.name.toLowerCase().includes(
-		// 	e.target.value.toLowerCase()
-		// )).length);
-		// setNum(data.filter(el => el.name.toLowerCase().includes(val)).length);
+		
+	
 	}
 	const changeText = () => {
 		console.log("Click")
 		setText("Привет!");
 	}
 	console.log(text);
+	
 	useEffect(() => {
 		let str = '';
 		if (num && text) {
@@ -41,16 +35,15 @@ const Search = ({data, setGoods}) => {
 		setSearchResult(str);
 	}, [num, text]);
 	useEffect(() => {
-		// console.log("ololo");
+		
 		let result = data.filter(el => el.name.toLowerCase().includes(text));
 		setGoods(result);
 		setNum(result.length);
 		console.log(result);
 	}, [text]);
 	return <>
-		<input className="search" type="search" value={text} onChange={changeValue}/>
-		{/*<button onClick={changeText}>Тык {num} раз</button>*/}
-		{/*{text && <p>По запросу {text} найдено {num} товаров</p>}*/}
+		<input placeholder="Поиск..." className="search" type="search" value={text} onChange={changeValue}/>
+		
 	</>
 }
 export default Search;

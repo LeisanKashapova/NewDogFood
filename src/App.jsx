@@ -11,19 +11,16 @@ import OldPage from "./pages/Old";
 import Profile from "./pages/Profile";
 import Product from "./pages/Product";
 import AddProduct from "./pages/AddProduct";
-// import Carousel from "./pages/Home/Carousel";
+// import { Search } from "react-bootstrap-icons";
+// import Search from "./components/Search";
 
-// import Start from "./pages/start/Start";
+
+;
 const App = () => {
     const [user, setUser] = useState(localStorage.getItem("userStore"));
     const [userId, setUserId] = useState(localStorage.getItem("userStore-id"));
     const [token, setToken] = useState(localStorage.getItem("token"));
-    /*
-        Есть массив с товарами (основной) [a,b,c] => [b,c] => [a]???
-        | |
-         U
-        Есть массив с товарами фильтруемый [b,c], [a]
-    */
+  
     const [baseData, setBaseData] = useState([]);
     const [goods, setGoods] = useState(baseData);
     const [searchResult, setSearchResult] = useState("");
@@ -40,6 +37,7 @@ const App = () => {
             setToken(null);
         }
     }, [user])
+
     useEffect(() => {
         console.log("token", token);
         if (token) {
@@ -55,6 +53,7 @@ const App = () => {
                 })
         }
     }, [token])
+
     useEffect(() => {
         setGoods(baseData)
     }, [baseData])
@@ -82,6 +81,7 @@ const App = () => {
                 setModalOpen={setModalOpen}
             />
             <main>
+                {/* <Search data={setBaseData} setGoods={baseData} /> */}
                 <Routes>
                     <Route path="/" element={<Home user={user} setActive={setModalOpen}/>}/>
                     
@@ -117,6 +117,10 @@ const App = () => {
                     <Route path="/product/:id" element={<Product />}/>
                     <Route path="/add/product" element={<AddProduct/>}/>
                 </Routes>
+                {/* <>
+                <Search data={Product}/>
+                {user ? <Catalog data={Product}/> : <Home data={OldPage}/>}
+                </> */}
             </main>
             <Footer/>
             <Modal 

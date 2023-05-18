@@ -30,7 +30,7 @@ const Home = ({user, setActive}) => {
 			</div>
 
 
-<div className="main-container">
+{/* <div className="main-container"> */}
 		<div className="pro-banner">
 		<div className="banner">
 				{/* <span>Подарок за первый заказ!</span>
@@ -63,7 +63,7 @@ const Home = ({user, setActive}) => {
 		</div>
 		</div>
 
-		</div>
+		{/* </div> */}
 		<Slider/>
 		
 		</>

@@ -1,4 +1,4 @@
-.footer {
+/* .footer {
     width: 100%;
     background-color: #ffe44d;
 }
@@ -10,9 +10,7 @@
 }
 
 .footer__copy {
-    /* display: grid;
-    gap: 10px;
-    justify-content: flex-start; */
+   
     display: grid;
     align-content: space-between;
 }
@@ -63,22 +61,7 @@
     opacity: 0.4;
     transition: all 0.2s;
 }
-/* .telegram-icon {
-    background: url(https://эко-питание.рф/wp-content/uploads/telegram-icon.jpg) no-repeat;
-}
 
-.whatsapp-icon {
-    background: url(https://эко-питание.рф/wp-content/uploads/telegram-icon.jpg) no-repeat;
-}
-.viber-icon {
-    background: url(https://эко-питание.рф/wp-content/uploads/telegram-icon.jpg) no-repeat;
-}
-.instagram-icon {
-    background: url(https://эко-питание.рф/wp-content/uploads/telegram-icon.jpg) no-repeat;
-}
-.vk-icon {
-    background: url(https://эко-питание.рф/wp-content/uploads/telegram-icon.jpg) no-repeat;
-} */
 
 .icon:hover {
     opacity: 1;
@@ -95,4 +78,4 @@
     .footer__copy a {
         justify-self: center;
     }
-}
+} */

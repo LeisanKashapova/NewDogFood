@@ -58,7 +58,7 @@ const Header = ({
            }
                 <span>
     {!user && <BoxArrowInRight title="Войти" onClick={login} />}
-    {/* {user && <BoxArrowLeft title="Выйти" onClick={logout}/>} */}
+
                 </span>  
         </nav>
        
