@@ -9,8 +9,11 @@ import Home from "./pages/Home/Home";
 import Catalog from "./pages/Catalog/Catalog";
 import OldPage from "./pages/Old";
 import Profile from "./pages/Profile";
-import Product from "./pages/Product";
+import Product from "./pages/ProductPage/index";
 import AddProduct from "./pages/AddProduct";
+import Favorites from "./pages/Favorites/Favorite";
+import Notfoundpage from "./pages/Notfoundpage/Notfoundpage"
+
 // import { Search } from "react-bootstrap-icons";
 // import Search from "./components/Search";
 
@@ -26,6 +29,7 @@ const App = () => {
     const [searchResult, setSearchResult] = useState("");
     const [modalOpen, setModalOpen] = useState(false);
     // Сохрани в переменную user то значение, что находится внутри useState
+    
     useEffect(() => {
         if (user) {
             setUserId(localStorage.getItem("userStore-id"));
@@ -55,23 +59,20 @@ const App = () => {
     }, [token])
 
     useEffect(() => {
-        setGoods(baseData)
+        
     }, [baseData])
+
     return (
-              // объявляем контекст в приложении
-        /*
-        * age = 2
-        * value = {
-        *   name: "User",
-        *   setName: function(){}
-        *   age => age: age
-        * }
-        * */
+             
         <Ctx.Provider value={{
             searchResult,
             setSearchResult,
             setBaseData,
-            baseData
+            baseData,
+            goods,
+            setGoods,
+            userId,
+            token
         }}>
             <Header 
                 user={user} 
@@ -82,41 +83,29 @@ const App = () => {
             />
             <main>
                 {/* <Search data={setBaseData} setGoods={baseData} /> */}
-                <Routes>
-                    <Route path="/" element={<Home user={user} setActive={setModalOpen}/>}/>
-                    
-                    <Route path="/catalog" element={
-                        <Catalog 
-                            goods={goods}
-                            
-                            userId={userId}
-                        />
-                    }/>
-                    <Route path="/old" element={
-                        <OldPage 
-                            goods={goods}
-                        />
-                    }/>
-                    <Route path="/profile" element={
-                        <Profile user={user} setUser={setUser}/>}
-                    />
-                    {/*
-                        :id - параметризованный запрос, где то, что идет после : является различными данными, которые можно вызвать при помощи свойства id
-                        {id: "...."}
-                        шаблон: /product/:brand/:year/:id
-                        /product/samsung/2019/12345
-                        /product/samsung/2019/78923
-                        /product/xaomi/2022/93838
-                        /product/apple/2019/32483
-                        шаблон: /product/year/:year
-                        {year: "..."}
-                        /product/year/2022
-                        /product/year/2019
-                    */}
-                    
-                    <Route path="/product/:id" element={<Product />}/>
-                    <Route path="/add/product" element={<AddProduct/>}/>
-                </Routes>
+ <Routes>
+    <Route path="/" element={<Home user={user} setActive={setModalOpen}/>}/>
+                        
+     <Route path="/catalog" element={
+         <Catalog 
+            goods={goods}
+                                
+            userId={userId}
+             />
+    }/>
+    <Route path="/old" element={
+        <OldPage 
+            goods={goods}
+            />
+    }/>
+    <Route path="/profile" element={
+        <Profile user={user} setUser={setUser}/>}/>
+    <Route path="/product/:id" element={<Product />}/>
+    <Route path="/add/product" element={<AddProduct/>}/>
+    <Route path="/favorites" element={<Favorites />}/>
+    <Route path="*" element={<Notfoundpage />} />
+    <Route path="/product/:id" element={<Product />} />
+</Routes>
                 {/* <>
                 <Search data={Product}/>
                 {user ? <Catalog data={Product}/> : <Home data={OldPage}/>}

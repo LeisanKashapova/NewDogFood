@@ -1,5 +1,4 @@
 import {useState, useEffect} from "react";
-
 import {useParams, Link} from "react-router-dom";
 
 const Product = () => {
@@ -19,7 +18,6 @@ const Product = () => {
 			})
 	}, [])
 	return <>
-		
 		<Link to={`/catalog#pro_${id}`}>Назад</Link>
 		{data.name 
 			? <>
@@ -32,5 +30,7 @@ const Product = () => {
 		}
 	</>
 }
+
+
 
 export default Product;

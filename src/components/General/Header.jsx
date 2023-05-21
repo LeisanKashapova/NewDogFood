@@ -6,7 +6,7 @@ import {
     StarFill,
     CartDash,
     PersonSquare,
-    BoxArrowInRight,
+    BoxArrowInRight
     //BoxArrowLeft
 } from "react-bootstrap-icons";
 
@@ -15,40 +15,31 @@ import Search from "../Search";
 
 const Header = ({
     user, 
-    // upd, 
     searchArr, 
     setGoods, 
-    // setSearchResult,
     setModalOpen
 }) => {
     const login = () => {
-        // localStorage.setItem("userStore", "Amica");
-        // upd("Amica");
         setModalOpen(true)
-       
-        // console.log(login);
-    }
+}
    
-
-
-
-
-    return <header>
+return <header>
         <Logo />
         <div className="search-block">
             <Search 
             data={searchArr}
-            setGoods={setGoods}
-          
-            />
+            setGoods={setGoods} 
+          />
+{/* {user ? <Search data={searchArr} setGoods={setGoods}/> : {{}} */}
+
         </div>
         <nav className="header__menu">
  {/* условие если юзер залогинился то он видит этот блок, если нет то не видит, называется условный рендеринг            */}
            {user && <>
-             <Link to="/">
+             <Link to="/favorites">
              <StarFill title="Избранное" />
              </Link>
-         <Link to="/">
+         <Link to="/cart">
              <CartDash title="Корзина" />
              </Link>
          <Link to="/profile">
@@ -57,7 +48,7 @@ const Header = ({
              </>
            }
                 <span>
-    {!user && <BoxArrowInRight title="Войти" onClick={login} />}
+{!user && <BoxArrowInRight title="Войти" onClick={login} />}
 
                 </span>  
         </nav>

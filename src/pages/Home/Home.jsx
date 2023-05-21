@@ -1,14 +1,8 @@
 import {Link} from "react-router-dom";
 import {Journals} from "react-bootstrap-icons";
 import Slider from "../../components/Slider/Slider";
-
-
-// import Carousele from "./Carousel";
-// import { Carousel } from "bootstrap";
-// import Product from "../Product";
-// import  Card  from "../components/Card/Card";
 import "./style.css";
-// import Promo from "../../components/Promo/Promo";
+
 
 const Home = ({user, setActive}) => {
 	return (
@@ -30,14 +24,11 @@ const Home = ({user, setActive}) => {
 			</div>
 
 
-{/* <div className="main-container"> */}
-		<div className="pro-banner">
-		<div className="banner">
-				{/* <span>Подарок за первый заказ!</span>
-				<span>Wagg</span> */}
-				
-		</div>
-		</div>
+
+		<div className="wrapper-container">
+		<div className="banner"></div>
+		
+
 		<Slider desktop={3} mobile={2}/>
 		{/* <div className="wrapper-promotional"> */}
 			<div className="promotional-container">
@@ -46,24 +37,20 @@ const Home = ({user, setActive}) => {
 			</div>
 		{/* </div> */}
 
-		<div className="promotional-bottom">
-			{/* <div className="promotional-container"> */}
+		{/* <div className="promotional-bottom"> */}
+			<div className="promotional-container">
 				<div className="promotional-rigth-1"></div>
 				<div className="promotional-left-1 "></div>
-			{/* </div> */}
-		</div>
-
-
-
-		<div className="pro-banner">
-		<div className="banner">
-				{/* <span>Подарок за первый заказ!</span>
-				<span>Wagg</span> */}
-				
-		</div>
-		</div>
-
+			</div>
 		{/* </div> */}
+
+
+
+		
+		<div className="banner"></div>
+		</div>
+
+		
 		<Slider/>
 		
 		</>

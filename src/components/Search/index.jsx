@@ -3,8 +3,8 @@ import {useNavigate} from "react-router-dom";
 import Ctx from "../../ctx";
 import "./style.css";
 
-const Search = ({data, setGoods}) => {
-	const { setSearchResult } = useContext(Ctx);
+const Search = () => {
+	const { setSearchResult, baseData, setGoods } = useContext(Ctx);
 	const navigate = useNavigate();
 	const [text, setText] = useState("");
 	const [num, setNum] = useState(0);
@@ -12,18 +12,10 @@ const Search = ({data, setGoods}) => {
 	const changeValue = (e) => {
 		navigate("/catalog");
 		let val = e.target.value.toLowerCase();
-		
 		setText(val);
-		
-	
 	}
-	const changeText = () => {
-		console.log("Click")
-		setText("Привет!");
-	}
-	console.log(text);
-	
-	useEffect(() => {
+
+useEffect(() => {
 		let str = '';
 		if (num && text) {
 			str = `По запросу ${text} найдено ${num} товаров`;
@@ -34,13 +26,15 @@ const Search = ({data, setGoods}) => {
 		}
 		setSearchResult(str);
 	}, [num, text]);
+
 	useEffect(() => {
 		
-		let result = data.filter(el => el.name.toLowerCase().includes(text));
+		let result = baseData.filter(el => el.name.toLowerCase().includes(text));
 		setGoods(result);
 		setNum(result.length);
-		console.log(result);
-	}, [text]);
+		
+	}, [text, baseData]);
+
 	return <>
 		<input placeholder="Поиск..." className="search" type="search" value={text} onChange={changeValue}/>
 		

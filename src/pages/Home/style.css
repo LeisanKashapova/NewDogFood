@@ -13,9 +13,7 @@ h3 {
     font-size: small;
     color: black;
 }
-/* .container-info {
-    width: 200px;
-} */
+
 .info-link {
     padding-top: 30px;
     padding-bottom: 30px;
@@ -28,10 +26,9 @@ h3 {
   .info-link:hover {
     text-shadow: 0 0 7px yellow;
   }
-  /* .main-container {
-    display: grid;
-    grid-template: repeat(3, 1fr);
-  } */
+  .wrapper-container {
+    margin: 0 50px;
+  }
   .banner {
     width: 1260px;
     background-size: cover;
@@ -39,20 +36,10 @@ h3 {
     height: 200px;
     background-color: white;
     border-radius: 8px;
-    /* display: flex;
-	justify-content: flex-end;
-	align-items: center;
-    align-content: center;
-	flex-direction: column; */
-	background-image: url("https://i.yapx.ru/WCiXE.png");
+    background-image: url("https://i.yapx.ru/WCiXE.png");
     background-repeat: no-repeat; 
 }
-.pro-banner {
-    display: flex;
-	justify-content: center;
-	align-items: center;
-    background-color: white;
-}
+
 .wrapper-promotional {
     background-color: white;
     
@@ -106,5 +93,7 @@ h3 {
     background-image: url("https://i.yapx.ru/WCijK.png");
 }
 @media (min-width: 576px){
-  
+    .promotional-container {
+        grid-template-columns: repeat(1, 1fr);
+    }
 }
