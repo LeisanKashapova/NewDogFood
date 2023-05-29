@@ -9,6 +9,11 @@ import Pagination from "../../components/Pagination";
 const Catalog = ({goods, userId}) => {
 	const {searchResult} = useContext(Ctx);
 	const paginate = usePagination(goods, 9)
+
+	useEffect(() => {
+		paginate.step(1);
+	   }, [searchResult])
+
 	return <Container className="d-block">
 		<Row className="g-4">
 		{searchResult && <Col xs={12} className="search-result">
@@ -20,7 +25,10 @@ const Catalog = ({goods, userId}) => {
 					<BsCard img={pro.pictures} {...pro} user={userId}/>
 				</Col>
 			))}
+	{
+	paginate.pageData().length > 0 &&
 	<Col xs={12} className="text-center d-flex justify-content-center flex-column align-items-center overflow-hidden"><Pagination hk={paginate} /></Col>
+	}
 		</Row>
 	</Container>
 }

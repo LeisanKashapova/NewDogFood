@@ -9,9 +9,9 @@ header {
     height: 100px;
 }
 header .search-block {
-    order: 1;
-    width: 100%;
-    display: flex;
+    
+    flex-grow: 1;
+    
     justify-content: center;
 }
 .logo {
@@ -21,11 +21,7 @@ header .search-block {
     font-weight: bold;
     font-size: 1.2rem;
 }
-@media (max-width: 776px) {
-    .logo {
-        max-width: 70px;
-    }
-}
+
 .logo img {
     height: 30px;
 }
@@ -39,7 +35,7 @@ header .search-block {
 .header__menu>span>* {
     cursor: pointer;
 }
-@media (min-width: 576px){
+@media (max-width: 576px){
     header {
       padding: 6px 10px;
       flex-wrap: no-wrap;
@@ -60,6 +56,9 @@ header .search-block {
     display: flex;
     align-items: center;
     gap: 5px;
+}
+.logo {
+    max-width: 70px;
 }
 }
 .footer {
@@ -93,9 +92,10 @@ header .search-block {
     text-decoration: none;
     color: #1A1A1A;
 }
-.footer__contacts h2,
+.footer__contacts 
 h3 {
     margin: 0;
+    font-size: medium;
 }
 .footer__contacts-social {
     display: flex;

@@ -1,6 +1,6 @@
 import {useState, useEffect, createContext} from "react";
 import {Routes, Route} from "react-router-dom";
-
+import Api from "./Api"
 import Ctx from "./ctx"
 import Modal from "./components/Modal";
 import {Header, Footer} from "./components/General"; // index.jsx
@@ -14,8 +14,7 @@ import AddProduct from "./pages/AddProduct";
 import Favorites from "./pages/Favorites/Favorite";
 import Notfoundpage from "./pages/Notfoundpage/Notfoundpage"
 
-// import { Search } from "react-bootstrap-icons";
-// import Search from "./components/Search";
+
 
 
 ;
@@ -23,11 +22,12 @@ const App = () => {
     const [user, setUser] = useState(localStorage.getItem("userStore"));
     const [userId, setUserId] = useState(localStorage.getItem("userStore-id"));
     const [token, setToken] = useState(localStorage.getItem("token"));
-  
+    
     const [baseData, setBaseData] = useState([]);
     const [goods, setGoods] = useState(baseData);
     const [searchResult, setSearchResult] = useState("");
     const [modalOpen, setModalOpen] = useState(false);
+    const [api, setApi] = useState(new Api(token));
     // Сохрани в переменную user то значение, что находится внутри useState
     
     useEffect(() => {
@@ -43,23 +43,27 @@ const App = () => {
     }, [user])
 
     useEffect(() => {
+        setApi(new Api(token));
         console.log("token", token);
-        if (token) {
-            fetch("https://api.react-learning.ru/products", {
-                headers: {
-                    "Authorization": `Bearer ${token}`
-                }
-            })
-                .then(res => res.json())
-                .then(data => {
-                    console.log(data);
-                    setBaseData(data.products);
-                })
-        }
-    }, [token])
+     }, [token])
 
     useEffect(() => {
-        
+        if (token) {
+            api.getProducts()
+            .then(data => {
+                console.log(data)
+                setBaseData(data.products);
+            })
+
+        } else {
+            setBaseData([]);
+        }
+    }, [api])
+
+    useEffect(() => {
+        // console.log("000")
+        // console.log(baseData.filter(el => el._id === "622c77cc77d63f6e70967d1e")[0].likes);
+        // setGoods(baseData)
     }, [baseData])
 
     return (
@@ -72,7 +76,8 @@ const App = () => {
             goods,
             setGoods,
             userId,
-            token
+            token,
+            api
         }}>
             <Header 
                 user={user} 

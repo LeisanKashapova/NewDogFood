@@ -28,7 +28,7 @@ const Footer = () => {
         <div className="footer__contacts">
             <h3>Мы на связи</h3>
             <div>
-                <a href="tel:+7999000000"><h2>8 (999) 99-99-99</h2></a>
+                <a href="tel:+7999000000"><h3>8 (999) 99-99-99</h3></a>
                 <a href="mailto:dogfood.ru@gmail.com">dogfood.ru@gmail.com</a>
             </div>
             <div className="footer__contacts-social">

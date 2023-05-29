@@ -26,28 +26,28 @@ const Home = ({user, setActive}) => {
 
 
 		<div className="wrapper-container">
-		<div className="banner"></div>
+		<div className="banner" />
 		
 
 		<Slider desktop={3} mobile={2}/>
 		{/* <div className="wrapper-promotional"> */}
 			<div className="promotional-container">
-				<div className="promotional-rigth"></div>
-				<div className="promotional-left"></div>
+				<div className="promotional-rigth" />
+				<div className="promotional-left" />
 			</div>
 		{/* </div> */}
 
 		{/* <div className="promotional-bottom"> */}
 			<div className="promotional-container">
-				<div className="promotional-rigth-1"></div>
-				<div className="promotional-left-1 "></div>
+				<div className="promotional-rigth-1" />
+				<div className="promotional-left-1 "/>
 			</div>
 		{/* </div> */}
 
 
 
 		
-		<div className="banner"></div>
+		<div className="banner" />
 		</div>
 
 		

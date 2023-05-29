@@ -1,5 +1,7 @@
-import {useState} from "react";
+
+import {useState, useContext} from "react";
 import {XOctagon} from "react-bootstrap-icons";
+import Ctx from "../../ctx";
 import "./style.css"
 
 const Modal = ({
@@ -7,6 +9,7 @@ const Modal = ({
     setIsActive,
     setUser
 }) => {
+const {api} = useContext(Ctx);
 const [isReg, setIsReg] = useState(false);
 const [name, setName] = useState("");
 const [email, setEmail] = useState("");
@@ -37,17 +40,9 @@ const handleForm = async (e) => {
         body.group = "group-12"
     }
     console.log(body);
+    const data = await (isReg ? api.register(body) : api.auth(body))
+    console.log(data);
 
-    const path = `https://api.react-learning.ru/${isReg ? "signup" : "signin"}`;
-    const res = await fetch(path, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(body)
-    })
-    const data = await res.json();
-console.log(data);
 
 if (isReg) {
     if (data?._id) {
