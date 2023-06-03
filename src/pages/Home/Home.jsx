@@ -2,11 +2,15 @@ import {Link} from "react-router-dom";
 import {Journals} from "react-bootstrap-icons";
 import Slider from "../../components/Slider/Slider";
 import "./style.css";
+import Banner from "../../components/banner";
+import BannerTwo from "../../components/BannerTwo";
+
 
 
 const Home = ({user, setActive}) => {
 	return (
 	<>
+
 	<div className="info">
 				<div className="container-info">
 
@@ -14,44 +18,48 @@ const Home = ({user, setActive}) => {
 					<p>Всегда свежие лакомства ручной работы с доставкой по России и миру</p>
 			
 						{user && <Link to="/catalog" className="info-link">
-						<Journals style={{marginRight: "10px"}}/>
-						Каталог
+						
+						<button className="catalog">Каталог <Journals/></button>
 						</Link>}
 						
 						{!user && <>
-					<span className="info-link" onClick={() => setActive(true)}>Авторизуйтесь, чтобы получить доступ к сайту</span></>}
+					<span className="info-link" 
+					onClick={() => setActive(true)}>Авторизуйтесь, чтобы получить доступ к сайту</span></>}
 				</div>
 			</div>
 
 
 
-		<div className="wrapper-container">
-		<div className="banner" />
+		
+			<div className="banner-wrap">
+			<Banner />
+			</div>
 		
 
 		<Slider desktop={3} mobile={2}/>
-		{/* <div className="wrapper-promotional"> */}
+		
 			<div className="promotional-container">
-				<div className="promotional-rigth" />
-				<div className="promotional-left" />
+				<div className="promotional-1" />
+				<div className="promotional-2" />
 			</div>
-		{/* </div> */}
-
-		{/* <div className="promotional-bottom"> */}
-			<div className="promotional-container">
-				<div className="promotional-rigth-1" />
-				<div className="promotional-left-1 "/>
-			</div>
-		{/* </div> */}
-
-
+		
 
 		
-		<div className="banner" />
-		</div>
-
+			<div className="promotional-container">
+				<div className="promotional-3" />
+				<div className="promotional-4 "/>
+			</div>
 		
-		<Slider/>
+
+			<div className="banner-wrap">
+			<BannerTwo />
+			</div>
+	<div className="slider2-wrap"><Slider/></div>
+		
+	
+		
+		
+		
 		
 		</>
 	)

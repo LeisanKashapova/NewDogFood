@@ -1,14 +1,17 @@
 import React from "react";
 import "./style.css";
-import Logo from "../../assents/images/Logo";
-import LogoTG from "../../assents/images/LogoTG";
-import LogoWA from "../../assents/images/LogoWA";
-import LogoViber from "../../assents/images/LogoViber";
-import LogoInstagram from "../../assents/images/LogoInstagram";
-import LogoVK from "../../assents/images/LogoVK";
+import Logo from "../images/Logo";
+import LogoTG from "../images/LogoTG";
+import LogoWA from "../images/LogoWA";
+import LogoViber from "../images/LogoViber";
+import LogoInstagram from "../images/LogoInstagram";
+import LogoVK from "../images/LogoVK";
+
 
 const Footer = () => {
-    return <footer className="footer">
+    return (
+   
+        <footer className="footer">
         <div className="footer__logo">
             <Logo />
             <span>© «Интернет-магазин DogFood.ru»</span>
@@ -40,6 +43,8 @@ const Footer = () => {
             </div>
         </div>
     </footer>
+   
+    )
 }
 
 

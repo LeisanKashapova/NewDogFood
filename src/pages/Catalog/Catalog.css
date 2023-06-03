@@ -1,0 +1,6 @@
+.search-result {
+  grid-column-end: span 3;
+
+  color: gray;
+  font-size: 1 rem;
+} 

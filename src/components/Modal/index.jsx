@@ -21,7 +21,7 @@ const changeForm = (e) => {
     setIsReg(!isReg);
     clearForm()
 }
-// очистить форму
+
 const clearForm = () => {
     setName("");
     setEmail("");

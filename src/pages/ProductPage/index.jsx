@@ -1,6 +1,8 @@
 import {useState, useEffect, useContext} from "react";
 import {useParams, Link, useNavigate} from "react-router-dom";
-import {Basket2, Plus} from "react-bootstrap-icons"
+import {Basket2, Plus} from "react-bootstrap-icons";
+// import { Star, Truck, Award, StarFill } from "react-bootstrap-icons";
+// import { getEnding, getRate } from "../../utilities/utilities";
 import {Container, Row, Col, Table, Card, Button, Form} from "react-bootstrap";
 import Ctx from "../../ctx";
 const Product = () => {

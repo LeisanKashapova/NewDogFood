@@ -61,9 +61,7 @@ const App = () => {
     }, [api])
 
     useEffect(() => {
-        // console.log("000")
-        // console.log(baseData.filter(el => el._id === "622c77cc77d63f6e70967d1e")[0].likes);
-        // setGoods(baseData)
+       
     }, [baseData])
 
     return (
@@ -98,11 +96,7 @@ const App = () => {
             userId={userId}
              />
     }/>
-    <Route path="/old" element={
-        <OldPage 
-            goods={goods}
-            />
-    }/>
+    <Route path="/old" element={<OldPage goods={goods}/>}/>
     <Route path="/profile" element={
         <Profile user={user} setUser={setUser}/>}/>
     <Route path="/product/:id" element={<Product />}/>

@@ -4,13 +4,33 @@
     gap: 50px;
     grid-template-columns: repeat(3, 1fr);
     padding-left: 100px;
+    height: 400px;
 }
-p {
-    font-size: small;
+.container-info {
     color: black;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    font-weight: 900;
 }
-h3 {
+.catalog {
+    background-color: white;
+    border-radius: 25px;
+    border: none;
+    box-shadow:  0 8 0 8;
+    padding: 10px 15px 10px 15px;
+    
+    box-shadow: 10px 5px 5px rgb(236, 205, 27);
+}
+.catalog:hover{
+    background-color: #ffe44d;
+    box-shadow: 5px 5px 5px brown;
+}
+/* p {
     font-size: small;
+    color: brown;
+    font-weight: 900;
+} */
+h3 {
+    font-weight: 900;
     color: black;
 }
 
@@ -22,15 +42,16 @@ h3 {
     cursor: pointer;
     text-shadow: 0 0 1px yellow;
     user-select: none;
+   
   }
   .info-link:hover {
-    text-shadow: 0 0 7px yellow;
+    text-shadow: 0 0 7px rgb(54, 54, 7);
   }
-  .wrapper-container {
+  /* .wrapper-container {
     margin: 0 50px;
-  }
-  .banner {
-    width: 1260px;
+  } */
+  /* .banner {
+    width: calc(100%-200px);
     background-size: cover;
     background-position: center;
     height: 200px;
@@ -38,11 +59,21 @@ h3 {
     border-radius: 8px;
     background-image: url("https://i.yapx.ru/WCiXE.png");
     background-repeat: no-repeat; 
-}
+} */
 
 .wrapper-promotional {
     background-color: white;
-   
+}
+.banner-wrap {
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    
+}
+.banner2 {
+    background-color: white;
+    display: flex;
+    justify-content: center;
     
 }
 .promotional-container {
@@ -51,19 +82,19 @@ h3 {
     grid-template-columns: repeat(2, 1fr);
     margin-bottom: 50px;
 }
-.promotional-rigth {
+.promotional-1 {
     background-image: url("https://i.yapx.ru/WCicF.png");
-    width: 605px;
+    width: 500px;
     background-size: cover;
     background-position: center;
     height: 180px;
     border-radius: 8px;
-    margin-left: 180px;
+    margin-left: 100px;
     
 }
-.promotional-left {
+.promotional-2 {
     background-image: url("https://i.yapx.ru/WCicr.png");
-    width: 605px;
+    width: 500px;
     background-size: cover;
     background-position: center;
     height: 180px;
@@ -76,25 +107,28 @@ h3 {
     grid-template-columns: repeat(2, 1fr);
     margin-bottom: 50px;
 }
-.promotional-rigth-1 {
+.promotional-3 {
     border-radius: 8px;
-    width: 605px;
+    width: 500px;
     background-size: cover;
     background-position: center;
-    height: 180px;
-    margin-left: 180px;
+    height: 150px;
+    margin-left: 100px;
     background-image: url("https://i.yapx.ru/WCic9.png");
 }
-.promotional-left-1 {
-    width: 605px;
+.promotional-4 {
+    width: 500px;
     background-size: cover;
     background-position: center;
     height: 180px;
     border-radius: 8px;
     background-image: url("https://i.yapx.ru/WCijK.png");
 }
-@media (max-width: 576px){
+.slider2-wrap {
+    margin-top: 30px;
+}
+/* @media (max-width: 576px){
     .promotional-container {
         grid-template-columns: repeat(1, 1fr);
     }
-}
+} */

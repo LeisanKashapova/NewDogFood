@@ -1,0 +1,25 @@
+.banner2 {
+    width: 84%;
+    max-height: 220px;
+    background-image: url("https://img.freepik.com/free-photo/front-view-of-beautiful-dog-with-copy-space_23-2148786499.jpg?w=900&t=st=1685729106~exp=1685729706~hmac=dc3019aa93c712bd763d19c843fd5bff76faf21d3734a7e9ac3a64dfcfc3b60a");
+    background-size: cover;
+    background-position: center;
+    min-height: 250px;
+    max-height: 25vh;
+    display: grid;
+    border-radius: 25px;
+    background-repeat: no-repeat; 
+}
+.banner__text {
+
+    padding: 20px;
+    font-size: 10px;
+    color: black;
+    opacity: 50%;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    font-weight: 800;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* justify-content: flex-start; */
+    align-items: center;
+}

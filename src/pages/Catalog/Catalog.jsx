@@ -5,6 +5,7 @@ import Ctx from "../../ctx";
 import "./Catalog.css";
 import usePagination from "../../hooks/usePagination";
 import Pagination from "../../components/Pagination";
+import "./Catalog.css"
 
 const Catalog = ({goods, userId}) => {
 	const {searchResult} = useContext(Ctx);

@@ -3,6 +3,7 @@ import {useNavigate} from "react-router-dom";
 import Ctx from "../../ctx";
 import "./style.css";
 
+
 const Search = () => {
 	const { setSearchResult, baseData, setGoods } = useContext(Ctx);
 	const navigate = useNavigate();
@@ -36,24 +37,14 @@ useEffect(() => {
 	}, [text, baseData]);
 
 	return <>
-		<input placeholder="Поиск..." className="search" type="search" value={text} onChange={changeValue}/>
+		<input 
+		placeholder="Поиск..." 
+		className="search" 
+		
+		type="search" 
+		value={text} 
+		onChange={changeValue}/>
 		
 	</>
 }
 export default Search;
-/*
-	Жизненный цикл
-	Mount - монтаж (отрисовка приложения)
-	componentWillMount
-	componentDidMount
-	componentWillUpdate
-	componentDidUpdate
-	componentWillUnmount
-	componentDidUnmount
-*/
-/*
-	Без React:
-	1) Создаем html-контент
-	2) Взять нужные теги
-	3) Повесить на input событие
-    */
