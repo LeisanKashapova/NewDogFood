@@ -3,10 +3,11 @@ import {useContext, useEffect, useState} from "react";
 import Ctx from "../ctx";
 import {Button, Container, Row, Col, Figure} from "react-bootstrap";
 import UpdatedInput from "../components/UpdatedInput";
+import BsCard from "../components/BsCard";
 
 const Profile = ({setUser}) => {
     const navigate = useNavigate()
-    const { api } = useContext(Ctx);
+    const { api, baseData } = useContext(Ctx);
 	const [userData, setUserData] = useState({});
  
 	const [inpName, setInpName] = useState(false);
@@ -15,9 +16,12 @@ const Profile = ({setUser}) => {
 	const [inpAvatar, setInpAvatar] = useState(false);
 
 	const updUser = (name, val) => {
-		let body = {...userData}
-		if (name !== "avatar") {
-			delete body.avatar;
+		let body = {
+			name: userData.name,
+			about: userData.about
+		}
+		if (name === "avatar") {
+			body =  {avatar: userData.avatar};
 		}
 		body[name] = val;
 		console.log(body);
@@ -47,13 +51,7 @@ const Profile = ({setUser}) => {
 							upd={updUser}
 							name="name"
 						/></div>
-						<div><UpdatedInput
-							val={userData.email}
-							isActive={inpEmail}
-							changeActive={setInpEmail}
-							upd={updUser}
-							name="email"
-						/></div>
+						<div className="py-3">{userData.email}</div>
 						<div><UpdatedInput
 							val={userData.about}
 							isActive={inpAbout}
@@ -80,6 +78,17 @@ const Profile = ({setUser}) => {
 						</Figure>
 					</Col>
 				</>}
+			</Row>
+
+
+			
+			<Row>
+				<Col xs={12}>
+					<h3>Мои товары</h3>
+				</Col>
+				{baseData.filter(el => el.author._id === userData._id).map(el => <Col xs={6} md={3} key={el._id}>
+					<BsCard {...el}/>
+				</Col>)}
 			</Row>
 			{/* <Link to="/add/product">Добавить товар</Link> */}
 			<Button variant="warning" as={Link} to="/add/product">Добавить товар</Button>

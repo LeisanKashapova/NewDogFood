@@ -5,6 +5,9 @@ import Profile from "../images/Profile";
 import Favorite from "../images/Favorite";
 import {BoxArrowInRight} from "react-bootstrap-icons";
 import Search from "../Search";
+import {useContext} from "react";
+import Ctx from "../../ctx";
+
 
 
 
@@ -14,6 +17,7 @@ const Header = ({
     setGoods, 
     setModalOpen
 }) => {
+    const {basket} = useContext(Ctx);
     const login = () => {
         setModalOpen(true)
 }
@@ -34,8 +38,12 @@ return <header>
              <Link to="/favorites">
              <Favorite title="Избранное" />
              </Link>
-         <Link to="/cart">
+         {/* <Link to="/cart"> */}
+         <Link to="/basket" className="header__link">
              <Cart title="Корзина" />
+             {basket.length > 0 && <span className="header__babble">
+                        {basket.reduce((acc, el) => acc + el.cnt, 0)}
+                    </span>}
              </Link>
          <Link to="/profile">
              <Profile title="Личный кабинет" />

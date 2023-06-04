@@ -13,12 +13,19 @@ import Product from "./pages/ProductPage/index";
 import AddProduct from "./pages/AddProduct";
 import Favorites from "./pages/Favorites/Favorite";
 import Notfoundpage from "./pages/Notfoundpage/Notfoundpage"
+import Basket from "./components/Basket";
 
 
 
 
 ;
 const App = () => {
+    let basketStore = localStorage.getItem("basket12");
+    if (basketStore && basketStore[0] === "[") {
+        basketStore = JSON.parse(basketStore);
+    } else {
+        basketStore = [];
+    }
     const [user, setUser] = useState(localStorage.getItem("userStore"));
     const [userId, setUserId] = useState(localStorage.getItem("userStore-id"));
     const [token, setToken] = useState(localStorage.getItem("token"));
@@ -28,6 +35,7 @@ const App = () => {
     const [searchResult, setSearchResult] = useState("");
     const [modalOpen, setModalOpen] = useState(false);
     const [api, setApi] = useState(new Api(token));
+    const [basket, setBasket] = useState(basketStore);
     // Сохрани в переменную user то значение, что находится внутри useState
     
     useEffect(() => {
@@ -41,6 +49,11 @@ const App = () => {
             setToken(null);
         }
     }, [user])
+
+    useEffect(() => {
+        localStorage.setItem("basket12", JSON.stringify(basket));
+    }, [basket])
+
 
     useEffect(() => {
         setApi(new Api(token));
@@ -75,7 +88,9 @@ const App = () => {
             setGoods,
             userId,
             token,
-            api
+            api,
+            basket,
+            setBasket
         }}>
             <Header 
                 user={user} 
@@ -104,6 +119,7 @@ const App = () => {
     <Route path="/favorites" element={<Favorites />}/>
     <Route path="*" element={<Notfoundpage />} />
     <Route path="/product/:id" element={<Product />} />
+    <Route path="/basket" element={<Basket/>}/>
 </Routes>
                 {/* <>
                 <Search data={Product}/>
