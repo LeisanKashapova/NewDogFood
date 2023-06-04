@@ -4,6 +4,14 @@ import {Trash3} from "react-bootstrap-icons";
 import Ctx from "../../ctx";
 import {Link} from "react-router-dom";
 
+const ShowNothing = () => {
+    return (
+        <div className="show-nothing">
+            <h2>Товаров нет</h2>
+        </div>
+    )
+}
+
 const Basket = ({}) => {
     const {basket, setBasket, baseData} = useContext(Ctx);
     const ids = basket.map(b => b.id);
@@ -31,7 +39,12 @@ const Basket = ({}) => {
     const del = (id) => {
         setBasket(prev => prev.filter(el => el.id !== id))
     }
-    return <Container style={{gridTemplateColumns: "1fr"}}>
+    
+    return (
+    // { basket.length > 0 ?
+    //     showOrders(props) : ShowNothing()}
+        
+        <Container style={{gridTemplateColumns: "1fr"}}>
         <h1>Корзина</h1>
         <Table>
             <tbody>
@@ -88,6 +101,7 @@ const Basket = ({}) => {
             </tfoot>
         </Table>
     </Container>
+    )
 }
 
 export default Basket;

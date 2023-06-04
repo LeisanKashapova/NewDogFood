@@ -1,8 +1,9 @@
 import {useState, useContext, useEffect} from "react";
 import {Link} from "react-router-dom";
-import {SuitHeart, SuitHeartFill} from "react-bootstrap-icons";
+import {SuitHeart, SuitHeartFill, Cart4, Trash3} from "react-bootstrap-icons";
 import {Card, Button} from "react-bootstrap";
 import Ctx from "../../ctx";
+import "./style.css";
 
 const BsCard = ({
     discount,
@@ -29,7 +30,7 @@ const BsCard = ({
         if (likeFlag) {
             api.setLike(_id, isLike)
                 .then(data => {
-                    // console.log(data.filter(el => el._id === _id));
+                
                     setLikeFlag(false);
                     // setBaseData((old) => old.map(el => el._id === data._id ? data : el))
                     api.getProducts()
@@ -42,6 +43,7 @@ const BsCard = ({
     }, [isLike])
 
     const addToBasket = (e) => {
+        console.log(123)
         e.preventDefault();
         e.stopPropagation();
         // Нет проверки на то, что товар уже есть в корзине и нужно увеличить его кол-во, как на стр одного товара
@@ -64,19 +66,28 @@ const BsCard = ({
         <Card.Body className="d-flex flex-column position-relative" >
             <Card.Title as="h4">{price} ₽</Card.Title>
             <Card.Text className="text-secondary fs-5 flex-grow-1">{name}</Card.Text>
-            {/* <Button variant="warning" className="w-100">Купить</Button> */}
+           
             <Button
                 disabled={inBasket}
-                onClick={addToBasket}
+                // onClick={addToBasket}
                 variant="warning"
                 className="w-100 position-relative"
                 style={{zIndex: "1"}}
-            >
-                В корзине
+                >
+                
+               <Cart4 onClick={addToBasket} className="cart4"/>
+               <div> <Trash3 className="trash3"/></div>
+              
+
+               
+               
             </Button>
+        
         </Card.Body>
         <Link to={`/product/${_id}`} className="card-link"></Link>
     </Card>
+      
 }
+
 
 export default BsCard;
