@@ -1,0 +1,25 @@
+.show-nothing {
+   display: grid;
+   justify-items: center;
+   justify-content: center;
+   margin-top: 5%;
+   margin-bottom: 5%;
+   gap: 15px;
+   
+}
+.basket-catalog {
+    background-color: rgb(236, 205, 27);
+    border-radius: 25px;
+    border: none;
+    box-shadow:  0 8 0 8;
+    padding: 10px 15px 10px 15px;
+    box-shadow: 10px 5px 5px rgb(84, 97, 8);
+}
+.basket-catalog:hover{
+    background-color: #ffe44d;
+    box-shadow: 5px 5px 5px brown;
+}
+.frown {
+    width: 60px;
+    height: auto;
+}

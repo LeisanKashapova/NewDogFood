@@ -32,7 +32,7 @@ const BsCard = ({
                 .then(data => {
                 
                     setLikeFlag(false);
-                    // setBaseData((old) => old.map(el => el._id === data._id ? data : el))
+                    
                     api.getProducts()
                     .then(newData => {
                         console.log(newData)
@@ -43,7 +43,7 @@ const BsCard = ({
     }, [isLike])
 
     const addToBasket = (e) => {
-        console.log(123)
+        
         e.preventDefault();
         e.stopPropagation();
         // Нет проверки на то, что товар уже есть в корзине и нужно увеличить его кол-во, как на стр одного товара
@@ -54,6 +54,10 @@ const BsCard = ({
             cnt: 1
         }])
     }
+  const del = (id) => {
+    setBasket(prev => prev.filter(el => el.id !== id))
+  }
+   
 
     return <Card className="pt-3 h-100" id={"pro_" + _id}>
         
@@ -69,14 +73,14 @@ const BsCard = ({
            
             <Button
                 disabled={inBasket}
-                // onClick={addToBasket}
+                
                 variant="warning"
                 className="w-100 position-relative"
                 style={{zIndex: "1"}}
                 >
                 
-               <Cart4 onClick={addToBasket} className="cart4"/>
-               <div> <Trash3 className="trash3"/></div>
+            <Cart4 onClick={addToBasket} className="cart4"/>
+            <Trash3 className="trash3"/>
               
 
                

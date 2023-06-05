@@ -55,13 +55,7 @@ const Home = ({user, setActive}) => {
 			<BannerTwo />
 			</div>
 	<div className="slider2-wrap"><Slider/></div>
-		
-	
-		
-		
-		
-		
-		</>
+</>
 	)
 }
 

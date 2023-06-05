@@ -1,9 +1,9 @@
 import React from "react";
 import "./style.css"
 
-const Bubble = ({ products }) => {
+const Bubble = ({ baseData}) => {
     return (
-        <span className="header__bubble" >{products.length}</span>
+        <span className="header__bubble" >{baseData.length}</span>
     )
 }
 

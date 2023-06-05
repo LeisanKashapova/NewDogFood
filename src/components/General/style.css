@@ -43,6 +43,7 @@ header .search-block {
     display: flex;
     align-items: center;
     gap: 10px;
+  
 }
 .header__menu>span>* {
     cursor: pointer;

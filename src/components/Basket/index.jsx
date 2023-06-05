@@ -3,14 +3,10 @@ import {Container, Table, ButtonGroup, Button} from "react-bootstrap";
 import {Trash3} from "react-bootstrap-icons";
 import Ctx from "../../ctx";
 import {Link} from "react-router-dom";
+import { EmojiFrown, Journals } from "react-bootstrap-icons";
+import "./style.css"
 
-const ShowNothing = () => {
-    return (
-        <div className="show-nothing">
-            <h2>Товаров нет</h2>
-        </div>
-    )
-}
+
 
 const Basket = ({}) => {
     const {basket, setBasket, baseData} = useContext(Ctx);
@@ -39,13 +35,29 @@ const Basket = ({}) => {
     const del = (id) => {
         setBasket(prev => prev.filter(el => el.id !== id))
     }
-    
+    const inBas = basket.length > 0;
+
+    const ShowNothing = () => {
+        return (
+            <div className="show-nothing">
+                <EmojiFrown className="frown"/>
+                <h2>В корзине нет товаров</h2>
+                <Link to="/catalog">
+                <button className="basket-catalog">Добавьте товар <Journals/></button>
+                </Link>
+                <Link to="/">
+                <button className="basket-catalog">На главную</button>
+                </Link>
+            </div>
+        )
+    }
+
     return (
-    // { basket.length > 0 ?
-    //     showOrders(props) : ShowNothing()}
-        
-        <Container style={{gridTemplateColumns: "1fr"}}>
-        <h1>Корзина</h1>
+    
+        inBas ? 
+            (<Container style={{gridTemplateColumns: "1fr"}}>
+        <h3>Корзина</h3>
+        <tr>pp</tr>
         <Table>
             <tbody>
                 {basket.map(el => <tr key={el.id}>
@@ -78,8 +90,8 @@ const Basket = ({}) => {
                     <td style={{verticalAlign: "middle"}}>
                         {el.discount > 0
                             ? <>
-                                 <span className="text-danger">{Math.ceil(el.price * el.cnt * ((100 - el.discount) / 100))} ₽</span>
-                                <del className="ms-2 small text-secondary d-inline-block">{el.price * el.cnt} ₽</del>
+        <span className="text-danger">{Math.ceil(el.price * el.cnt * ((100 - el.discount) / 100))} ₽</span>
+        <del className="ms-2 small text-secondary d-inline-block">{el.price * el.cnt} ₽</del>
                             </>
                             : <span>{el.price * el.cnt} ₽</span>}
                     </td>
@@ -95,25 +107,15 @@ const Basket = ({}) => {
                             <del className="ms-2 small text-secondary d-inline-block">{sum} ₽</del>
                         </>
                     }</td>
-                    {/* Посчитать сумму всех товаров с учетом их количества */}
-                    {/* Посчитать сумму всех товаров с учетом их количества и скидки*/}
+                  
                 </tr>
             </tfoot>
         </Table>
-    </Container>
+    </Container>)
+    : ShowNothing()
+        
     )
 }
 
 export default Basket;
 
-/*
-* [
-*   {
-*       id: product._id
-*       cnt: >= 1
-*       price: product.price
-*       discount: 10
-*   }
-* ]
-*
-* */

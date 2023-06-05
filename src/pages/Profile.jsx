@@ -11,7 +11,7 @@ const Profile = ({setUser}) => {
 	const [userData, setUserData] = useState({});
  
 	const [inpName, setInpName] = useState(false);
-	const [inpEmail, setInpEmail] = useState(false);
+	// const [inpEmail, setInpEmail] = useState(false);
 	const [inpAbout, setInpAbout] = useState(false);
 	const [inpAvatar, setInpAvatar] = useState(false);
 
