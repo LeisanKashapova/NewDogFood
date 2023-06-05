@@ -90,7 +90,8 @@ const App = () => {
             token,
             api,
             basket,
-            setBasket
+            setBasket,
+            Favorites
         }}>
             <Header 
                 user={user} 

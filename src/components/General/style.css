@@ -34,6 +34,20 @@ header .search-block {
     padding: 5px 10px;
     border-radius: 30px;
 }
+.favorite__babble {
+    position: absolute;
+    top: 70px;
+    right: 300px;
+    background-color: green;
+    opacity: 80%;
+    font-weight: bold;
+    font-size: 9px;
+    line-height: 11px;
+    text-align: center;
+    color: #FFFFFF;
+    padding: 5px 10px;
+    border-radius: 30px;
+}
 .logo img {
     height: 30px;
 }

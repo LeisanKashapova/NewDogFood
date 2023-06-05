@@ -1,4 +1,4 @@
-import {useState, useContext, Fragment} from "react";
+import { useContext, Fragment} from "react";
 import {Container, Table, ButtonGroup, Button} from "react-bootstrap";
 import {Trash3} from "react-bootstrap-icons";
 import Ctx from "../../ctx";
@@ -11,6 +11,7 @@ import "./style.css"
 const Basket = ({}) => {
     const {basket, setBasket, baseData} = useContext(Ctx);
     const ids = basket.map(b => b.id);
+    
     const filteredData = baseData.filter(el => ids.includes(el._id))
     const sum = basket.reduce((acc, el) => acc + el.price * el.cnt, 0);
     const sumDiscount = basket.reduce((acc, el) => {
@@ -35,6 +36,7 @@ const Basket = ({}) => {
     const del = (id) => {
         setBasket(prev => prev.filter(el => el.id !== id))
     }
+    
     const inBas = basket.length > 0;
 
     const ShowNothing = () => {
@@ -51,13 +53,15 @@ const Basket = ({}) => {
             </div>
         )
     }
+    //  const clearAll = ""
+    
 
     return (
     
         inBas ? 
             (<Container style={{gridTemplateColumns: "1fr"}}>
         <h3>Корзина</h3>
-        <tr>pp</tr>
+        <tr><button onClick={() => del(ids)}>Очистить корзину</button></tr>
         <Table>
             <tbody>
                 {basket.map(el => <tr key={el.id}>

@@ -1,9 +1,10 @@
 import React from "react";
-import "./style.css"
+import "./style.css";
+import Favorites from "../images/Favorite";
 
 const Bubble = ({ baseData}) => {
     return (
-        <span className="header__bubble" >{baseData.length}</span>
+        <span className="header__bubble" >{Favorites.length}</span>
     )
 }
 

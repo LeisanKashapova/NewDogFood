@@ -24,6 +24,8 @@ const BsCard = ({
     const likeHandler = () => {
         setIsLike(!isLike);
         setLikeFlag(true);
+        console.log(setIsLike, "oO");
+       
     }
    
     useEffect(() => {
@@ -54,9 +56,9 @@ const BsCard = ({
             cnt: 1
         }])
     }
-  const del = (id) => {
-    setBasket(prev => prev.filter(el => el.id !== id))
-  }
+//   const del = (id) => {
+//     setBasket(prev => prev.filter(el => el.id !== id))
+//   }
    
 
     return <Card className="pt-3 h-100" id={"pro_" + _id}>
