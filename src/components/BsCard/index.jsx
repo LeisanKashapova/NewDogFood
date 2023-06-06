@@ -1,7 +1,7 @@
 import {useState, useContext, useEffect} from "react";
 import {Link} from "react-router-dom";
 import {SuitHeart, SuitHeartFill, Cart4, Trash3} from "react-bootstrap-icons";
-import {Card, Button} from "react-bootstrap";
+import {Card, Button, ButtonGroup} from "react-bootstrap";
 import Ctx from "../../ctx";
 import "./style.css";
 
@@ -56,9 +56,12 @@ const BsCard = ({
             cnt: 1
         }])
     }
-//   const del = (id) => {
-//     setBasket(prev => prev.filter(el => el.id !== id))
-//   }
+  const del = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setBasket(prev => prev.filter(el => el.id !== _id))
+    
+  }
    
 
     return <Card className="pt-3 h-100" id={"pro_" + _id}>
@@ -72,7 +75,7 @@ const BsCard = ({
         <Card.Body className="d-flex flex-column position-relative" >
             <Card.Title as="h4">{price} ₽</Card.Title>
             <Card.Text className="text-secondary fs-5 flex-grow-1">{name}</Card.Text>
-           
+            <ButtonGroup>
             <Button
                 disabled={inBasket}
                 
@@ -82,12 +85,23 @@ const BsCard = ({
                 >
                 
             <Cart4 onClick={addToBasket} className="cart4"/>
-            <Trash3 className="trash3"/>
+          
               
 
                
                
             </Button>
+            <Button
+            disabled={!inBasket}
+                
+            variant="outline-warning"
+            className="w-100 position-relative"
+            style={{zIndex: "1"}}
+            >
+                  {/* проверить условие если есть в корзине */}
+            <Trash3 onClick={del} className="trash3"/>
+            </Button>
+            </ButtonGroup>
         
         </Card.Body>
         <Link to={`/product/${_id}`} className="card-link"></Link>
