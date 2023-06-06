@@ -3,8 +3,8 @@ import {Routes, Route} from "react-router-dom";
 import Api from "./Api"
 import Ctx from "./ctx"
 import Modal from "./components/Modal";
-import {Header, Footer} from "./components/General"; // index.jsx
-// Подключаем странички
+import {Header, Footer} from "./components/General";
+
 import Home from "./pages/Home/Home";
 import Catalog from "./pages/Catalog/Catalog";
 import OldPage from "./pages/Old";
@@ -14,11 +14,12 @@ import AddProduct from "./pages/AddProduct";
 import Favorites from "./pages/Favorites/Favorite";
 import Notfoundpage from "./pages/Notfoundpage/Notfoundpage"
 import Basket from "./components/Basket";
+import staticNews from "./assets/data/news.json";
 
 
 
 
-;
+
 const App = () => {
     let basketStore = localStorage.getItem("basket12");
     if (basketStore && basketStore[0] === "[") {
@@ -36,7 +37,44 @@ const App = () => {
     const [modalOpen, setModalOpen] = useState(false);
     const [api, setApi] = useState(new Api(token));
     const [basket, setBasket] = useState(basketStore);
-    // Сохрани в переменную user то значение, что находится внутри useState
+  
+
+    let n1 = sessionStorage.getItem("dogs-news");
+    if (n1) {
+        n1 = JSON.parse(n1);
+    }
+    let n2 = sessionStorage.getItem("lenta-news");
+    if (n2) {
+        n2 = JSON.parse(n2);
+    }
+    const [news, setNews] = useState(n1 || []);
+    const [newsLenta, setNewsLenta] = useState(n2 || []);
+
+    useEffect(() => {
+        if (process.env.NODE_ENV === "development") {
+            if (!news.length) {
+                fetch(`https://newsapi.org/v2/everything?q=собаки&apiKey=${process.env.REACT_APP_NEWS_KEY}`)
+                    .then(res => res.json())
+                    .then(data => {
+                        const result = data.articles.filter(el => el.source.name === "Techinsider.ru")
+                        sessionStorage.setItem("dogs-news", JSON.stringify(result));
+                        setNews(result);
+                    })
+            }
+            if (!newsLenta.length) {
+                fetch(`https://newsapi.org/v2/everything?q=собаки&sources=lenta&apiKey=${process.env.REACT_APP_NEWS_KEY}`)
+                    .then(res => res.json())
+                    .then(data => {
+                        sessionStorage.setItem("lenta-news", JSON.stringify(data.articles));
+                        setNewsLenta(data.articles);
+                    })
+            }
+        } else {
+            setNews(staticNews);
+        }
+    }, []);
+
+
     
     useEffect(() => {
         if (user) {
@@ -91,7 +129,9 @@ const App = () => {
             api,
             basket,
             setBasket,
-            Favorites
+            Favorites,
+            news,
+            newsLenta
         }}>
             <Header 
                 user={user} 
@@ -101,7 +141,7 @@ const App = () => {
                 setModalOpen={setModalOpen}
             />
             <main>
-                {/* <Search data={setBaseData} setGoods={baseData} /> */}
+                
  <Routes>
     <Route path="/" element={<Home user={user} setActive={setModalOpen}/>}/>
                         
@@ -122,10 +162,7 @@ const App = () => {
     <Route path="/product/:id" element={<Product />} />
     <Route path="/basket" element={<Basket/>}/>
 </Routes>
-                {/* <>
-                <Search data={Product}/>
-                {user ? <Catalog data={Product}/> : <Home data={OldPage}/>}
-                </> */}
+               
             </main>
             <Footer/>
             <Modal 

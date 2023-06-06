@@ -5,7 +5,11 @@ import Ctx from "../../ctx";
 import "./Catalog.css";
 import usePagination from "../../hooks/usePagination";
 import Pagination from "../../components/Pagination";
-import "./Catalog.css"
+import "./Catalog.css";
+// import NotFound from "../Notfoundpage/Notfoundpage";
+// import Sorting from "../../components/Sorting";
+
+// import SearchResult from "";
 
 const Catalog = ({goods, userId}) => {
 	const {searchResult} = useContext(Ctx);
@@ -15,7 +19,12 @@ const Catalog = ({goods, userId}) => {
 		paginate.step(1);
 	   }, [searchResult])
 
-	return <Container className="d-block">
+	return ( <>
+	{/* {search && <searchResult />}
+            {goods.length === 0 && <NotFound text="Простите, по вашему запросу товаров не найдено" buttonText="На главную" buttonPath="/" />}
+            {goods.length && <Sorting />} */}
+			
+	<Container className="d-block">
 		<Row className="g-4">
 		{searchResult && <Col xs={12} className="search-result">
 				 {searchResult}
@@ -28,10 +37,13 @@ const Catalog = ({goods, userId}) => {
 			))}
 	{
 	paginate.pageData().length > 0 &&
-	<Col xs={12} className="text-center d-flex justify-content-center flex-column align-items-center overflow-hidden"><Pagination hk={paginate} /></Col>
+	<Col xs={12} className="text-center d-flex justify-content-center flex-column align-items-center overflow-hidden">
+		<Pagination hk={paginate} /></Col>
 	}
 		</Row>
 	</Container>
+	</>
+	)
 }
 
 export default Catalog;

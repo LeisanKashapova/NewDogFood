@@ -1,11 +1,12 @@
 
-.newbanner {
+.bannertop {
     width: 84%;
     max-height: 220px;
+    padding: 0 1rem;
     background-image: url("https://img.freepik.com/free-photo/side-view-domestic-dog-copy-space_23-2148326228.jpg?w=900&t=st=1685728988~exp=1685729588~hmac=dfa4ba45126d622759edb836e04653ef183d3fcf7e51ac05cd61f34dbef8a6e1");
     position: absolute;
-    z-index: 100;
-    top: 430px;
+    z-index: 1;
+    top: 330px;
     background-size: cover;
     background-position: center;
     min-height: 250px;
@@ -22,8 +23,8 @@
     font-size: 10px;
     color: black;
     opacity: 50%;
-    font-family: 'Comic Sans MS', cursive, sans-serif;
-    font-weight: 800;
+    /* font-family: 'Comic Sans MS', cursive, sans-serif; */
+    /* font-weight: 800; */
     display: grid;
     grid-template-columns: 1fr 1fr;
     /* justify-content: flex-start; */

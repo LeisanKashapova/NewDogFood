@@ -1,10 +1,10 @@
 import "./style.css";
 
 
-const Banner = () => {
+const BannerTop = () => {
   
 
-    return <div className="newbanner">
+    return <div className="bannertop">
         
             <div className="banner__text">
                 <h2>Счастливый хвостик с нашими лакомствами и игрушками</h2>
@@ -13,4 +13,4 @@ const Banner = () => {
     </div>
     
 }
-export default Banner;
+export default BannerTop;

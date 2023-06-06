@@ -1,7 +1,7 @@
 import "./style.css";
 
-const BannerTwo = () => {
-  return <div className="banner2">
+const BannerBottom = () => {
+  return <div className="bannerbottom">
         
             <div className="banner__text">
                 <h2>Лучший магазин вкусняшек для вашей собачки</h2>
@@ -10,4 +10,4 @@ const BannerTwo = () => {
     </div>
     
 }
-export default BannerTwo;
+export default BannerBottom;

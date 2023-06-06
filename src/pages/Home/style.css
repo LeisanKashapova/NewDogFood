@@ -1,15 +1,17 @@
 .info {
     background-color: #ffe44d;
     display: grid;
-    gap: 50px;
+    gap: 30px;
     grid-template-columns: repeat(3, 1fr);
     padding-left: 100px;
-    height: 400px;
+    height: 300px;
 }
-.container-info {
+.container-info h5 p {
     color: black;
-    font-family: 'Comic Sans MS', cursive, sans-serif;
-    font-weight: 900;
+   
+    /* font-family: 'Comic Sans MS', cursive, sans-serif; */
+    /* font-weight: 900; */
+    /* font-size: 20px; */
 }
 .catalog {
     background-color: white;
@@ -17,116 +19,52 @@
     border: none;
     box-shadow:  0 8 0 8;
     padding: 10px 15px 10px 15px;
-    
     box-shadow: 10px 5px 5px rgb(236, 205, 27);
+    
 }
 .catalog:hover{
     background-color: #ffe44d;
     box-shadow: 5px 5px 5px brown;
 }
-/* p {
-    font-size: small;
-    color: brown;
-    font-weight: 900;
-} */
-h3 {
-    font-weight: 900;
-    color: black;
-}
-
 .info-link {
-    padding-top: 30px;
-    padding-bottom: 30px;
-    display: flex;
-    align-items: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    /* display: flex;
+    align-items: center; */
     cursor: pointer;
     text-shadow: 0 0 1px yellow;
     user-select: none;
-   
-  }
+}
   .info-link:hover {
-    text-shadow: 0 0 7px rgb(54, 54, 7);
+    text-shadow: 0 0 1px rgb(54, 54, 7);
   }
-  /* .wrapper-container {
-    margin: 0 50px;
-  } */
-  /* .banner {
-    width: calc(100%-200px);
-    background-size: cover;
-    background-position: center;
-    height: 200px;
-    background-color: white;
-    border-radius: 8px;
-    background-image: url("https://i.yapx.ru/WCiXE.png");
-    background-repeat: no-repeat; 
-} */
+ 
 
-.wrapper-promotional {
-    background-color: white;
-}
+
 .banner-wrap {
-    background-color: white;
+    /* background-color: white; */
     display: flex;
     justify-content: center;
+    margin-bottom: 10px;
     
 }
-.banner2 {
-    background-color: white;
-    display: flex;
-    justify-content: center;
-    
-}
+
 .promotional-container {
+    width: 84%;
     display: grid;
-    gap: 50px;
-    grid-template-columns: repeat(2, 1fr);
-    margin-bottom: 50px;
-}
-.promotional-1 {
-    background-image: url("https://i.yapx.ru/WCicF.png");
-    width: 500px;
-    background-size: cover;
-    background-position: center;
-    height: 180px;
-    border-radius: 8px;
-    margin-left: 100px;
-    
-}
-.promotional-2 {
-    background-image: url("https://i.yapx.ru/WCicr.png");
-    width: 500px;
-    background-size: cover;
-    background-position: center;
-    height: 180px;
-    border-radius: 8px;
+    justify-content: center;
+    justify-items: center;
+    align-content: center;
+    margin-left: 105px;
    
-}
-.promotional-bottom {
-    display: grid;
-    gap: 50px;
+    gap: 10px;
     grid-template-columns: repeat(2, 1fr);
-    margin-bottom: 50px;
-}
-.promotional-3 {
-    border-radius: 8px;
-    width: 500px;
-    background-size: cover;
-    background-position: center;
-    height: 150px;
-    margin-left: 100px;
-    background-image: url("https://i.yapx.ru/WCic9.png");
-}
-.promotional-4 {
-    width: 500px;
-    background-size: cover;
-    background-position: center;
-    height: 180px;
-    border-radius: 8px;
-    background-image: url("https://i.yapx.ru/WCijK.png");
+    margin-bottom: 10px;
 }
 .slider2-wrap {
     margin-top: 30px;
 }
+
 /* @media (max-width: 576px){
     .promotional-container {
         grid-template-columns: repeat(1, 1fr);

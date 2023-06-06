@@ -1,0 +1,17 @@
+.sorting {
+    display: flex;
+    gap: 16px;
+    padding: 10px 16px;
+    border-radius: 10px;
+    box-shadow: 1px 5px 10px 0px #b0b0b0;
+}
+
+.sorting__point {
+    cursor: pointer;
+    border-radius: 15px;
+    padding: 1px 5px;
+}
+
+.sorting__point:hover {
+    box-shadow: 0 0 5px 1px grey;
+}
