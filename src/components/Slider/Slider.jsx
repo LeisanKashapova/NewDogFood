@@ -5,7 +5,7 @@ import Ctx from "../../ctx";
 
 import "./Slider.css";
 
-const Slider = ({desktop = 4, mobile = 1}) => {
+const Slider = ({desktop = 4, mobile = 2}) => {
 
     const {baseData} = useContext(Ctx);
     const [gds, setGds] = useState([[]]);
@@ -40,7 +40,7 @@ const Slider = ({desktop = 4, mobile = 1}) => {
     }, [baseData, cnt])
 
     useEffect(() => {
-        console.log(gds)
+    
     }, [gds])
 
     return <Container className="carousel" style={{gridTemplateColumns: "1fr"}}>
@@ -50,10 +50,7 @@ const Slider = ({desktop = 4, mobile = 1}) => {
                     {el.map(card => <Col xs={12 / cnt} key={card._id}>
                         <BsCard {...card} />
                     </Col>)}
-                    {/*<Col xs={3}><BsCard {...el} /></Col>*/}
-                    {/*<Col xs={3}><BsCard {...el} /></Col>*/}
-                    {/*<Col xs={3}><BsCard {...el} /></Col>*/}
-                    {/*<Col xs={3}><BsCard {...el} /></Col>*/}
+               
                 </Row>
             </Carousel.Item>)}
         </Carousel>

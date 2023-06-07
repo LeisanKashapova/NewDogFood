@@ -38,26 +38,18 @@
   .info-link:hover {
     text-shadow: 0 0 1px rgb(54, 54, 7);
   }
- 
-
-
-.banner-wrap {
-    /* background-color: white; */
+ .banner-wrap {
     display: flex;
     justify-content: center;
     margin: 0 auto 10px;
-    
 }
-
 .promotional-container {
     width: 84%;
     display: grid;
     justify-content: center;
     justify-items: center;
     align-content: center;
-   
     margin: 0 auto 10px;
-   
     gap: 10px;
     grid-template-columns: repeat(2, 1fr);
     margin-bottom: 10px;
@@ -78,8 +70,27 @@
 }
 
 
-/* @media (max-width: 576px){
-    .promotional-container {
+@media (max-width: 576px){
+    /* .promotional-container {
         grid-template-columns: repeat(1, 1fr);
+    } */
+    .news-container {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    /* .banner-wrap {
+        display: flex;
+        justify-content: center;
+        margin: 0 auto 10px;
+        max-height: 30vh;
+    } */
+    .info {
+        font-size: 15px;
+        gap: 17px;
+        grid-template-columns: repeat(2, 1fr);
+       }
+       .banner-wrap {
+        width: 100%;
+       /* max-height: 200px; */
+        /* margin: 0 auto 10px; */
     }
-} */
+}

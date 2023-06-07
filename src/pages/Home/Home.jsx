@@ -9,15 +9,14 @@ import Promo from "../../components/Promo/Promo";
 import addsData from "../../assets/data/adds.json";
 import Carousel from "../../components/Carousel";
 import News from "../../components/news";
-import Layout from "../../components/Layout";
+// import Layout from "../../components/Layout";
 import Ctx from "../../ctx";
 
 
 
 const Home = ({user, setActive}) => {
-	const { news, newsLenta } = useContext(Ctx);
-	
-	return (
+	const { news } = useContext(Ctx);
+return (
 	<div>
 <div className="info">
 	<div className="container-info">
@@ -62,7 +61,7 @@ const Home = ({user, setActive}) => {
 {news.length > 0 && <div className="news-container">
         <Carousel
          data={news.map((el, i) => <News key={`new-${i}`} data={el} isTitled={true} />)}
-         cnt={window.innerWidth < 1064 ? 2 : 4}
+         cnt={window.innerWidth < 1064 ? 4 : 2}
             />
  </div>}
 

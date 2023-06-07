@@ -60,10 +60,9 @@ return <header>
              </Link>
              </>
            }
-                <span>
+<span>
 {!user && <BoxArrowInRight title="Войти" onClick={login} />}
-
-                </span>  
+</span>  
         </nav>
        
        
