@@ -141,14 +141,14 @@ h3 {
 }
 /*FOOTER*/
 .footer {
-    margin: 0;
+    margin-left: 0;
   
 }
 .footer__logo {
-    /* display: flex;
-    flex-direction: column; */
-    justify-content: start;
+    width: 180px;
+    height: 46px;
     margin-left: 0;
+    
 }
 span {
     margin: 0;
@@ -157,11 +157,15 @@ span {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    gap: 20px;
+    gap: 10px;
 }
 .footer__nav-list a {
+  
     text-decoration: none;
     color: #1A1A1A;
+}
+a {
+    font-size: 1rem;
 }
 .footer__contacts {
     display: flex;

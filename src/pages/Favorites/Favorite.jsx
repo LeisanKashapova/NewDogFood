@@ -26,11 +26,7 @@ const Favorites = () => {
    
 const inFavorites = likeCards.length > 0;
 
-    
-   
-
-
-    return ( 
+return ( 
         inFavorites ?
     <Container className="d-block">
         <Row className="g-4">

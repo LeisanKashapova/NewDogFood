@@ -37,8 +37,9 @@ export const getEnding = (num) => {
         }
     }
 }
-export const filterMyFavProduct = (products, userID) => {
-    const fav = products.filter(product => product.likes.includes(userID))
+export const filterMyFavProduct = (baseData, userID) => {
+    const fav = baseData.filter(product => product.likes.includes(userID))
+    
     return fav
 }
 export  const sort = (cards, filter, hookFunc) => {

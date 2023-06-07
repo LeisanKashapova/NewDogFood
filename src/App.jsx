@@ -15,6 +15,7 @@ import Favorites from "./pages/Favorites/Favorite";
 import Notfoundpage from "./pages/Notfoundpage/Notfoundpage"
 import Basket from "./components/Basket";
 import staticNews from "./assets/data/news.json";
+import inFavorites from "./pages/Favorites/Favorite"
 
 
 
@@ -112,7 +113,7 @@ const App = () => {
     }, [api])
 
     useEffect(() => {
-       
+       console.log(goods)
     }, [baseData])
 
     return (
@@ -130,6 +131,7 @@ const App = () => {
             basket,
             setBasket,
             Favorites,
+            inFavorites,
             news,
             newsLenta
         }}>

@@ -1,4 +1,5 @@
 import {Link} from "react-router-dom";
+import { useState, useEffect } from "react"; 
 import Logo from "../images/Logo";
 import Cart from "../images/Cart";
 import Profile from "../images/Profile";
@@ -7,8 +8,7 @@ import {BoxArrowInRight} from "react-bootstrap-icons";
 import Search from "../Search";
 import {useContext} from "react";
 import Ctx from "../../ctx";
-// import Bubble from "../Babble";
-// import Favorites from "../../pages/Favorites/Favorite";
+
 
 
 
@@ -22,10 +22,15 @@ const Header = ({
    
     
 }) => {
-    const {basket, Favorites} = useContext(Ctx);
+    const {basket, baseData, userId, goods} = useContext(Ctx);
+    const [likeCards, setLikeCards] = useState(baseData.filter(el => el.likes.includes(userId)));
+    const [likeCnt, setLikeCnt] = useState(0);
     const login = () => {
-        setModalOpen(true)
-}
+        setModalOpen(true)}
+    useEffect(() => {
+        setLikeCnt(goods.filter(el => el.likes.includes(localStorage.getItem("userStore-id"))).length)
+    }, [goods]);
+
 
    
 return <header>
@@ -43,10 +48,7 @@ return <header>
            {user && <>
              <Link to="/favorites" className="header__link">
              <Favorite title="Избранное"/>
-            <span className="favorite__babble">{Favorites.length}</span>
-             {/* {Favorites.length > 0 && <span className="header__babble"> */}
-             {/* {Favorites.reduce((acc, el) => acc + el.cnt, 0)} */}
-                {/* </span>} */}
+            <span className="favorite__babble">{likeCnt}</span>
              </Link>
         
          <Link to="/basket" className="header__link">

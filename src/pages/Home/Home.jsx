@@ -61,7 +61,7 @@ return (
 {news.length > 0 && <div className="news-container">
         <Carousel
          data={news.map((el, i) => <News key={`new-${i}`} data={el} isTitled={true} />)}
-         cnt={window.innerWidth < 1064 ? 4 : 2}
+         cnt={window.innerWidth < 765 ? 3 : 4}
             />
  </div>}
 

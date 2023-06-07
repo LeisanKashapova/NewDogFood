@@ -1,31 +1,23 @@
-import {Pagination as BsPag} from "react-bootstrap"
+import Item from "./item"
+import "./style.css"
 
 const Pagination = ({hk}) => {
-    const step = (e) => {
-        hk.step(+e.target.innerText)
-    }
     let items = [];
-    let i = 1;
-    do {
-        items.push(<BsPag.Item key={i} active={i === hk.page} onClick={step}>{i}</BsPag.Item>)
-        i++;
-    } while (i <= hk.maxPage);
-
-
-
-    return <>
-        <BsPag>{items}</BsPag>
-        <BsPag>
-            {hk.page !== 1 && <>
-                <BsPag.Prev onClick={hk.prev}/>
-                <BsPag.Item onClick={step}>{hk.page - 1}</BsPag.Item>
-            </>}
-            <BsPag.Item active>{hk.page}</BsPag.Item>
-            {hk.page !== hk.maxPage && <>
-                <BsPag.Item onClick={step}>{hk.page + 1}</BsPag.Item>
-                <BsPag.Next onClick={hk.next}/>
-            </>}
-        </BsPag>
-    </>
+    for (let i = 0; i < hk.max; i++) {
+        items.push(<Item
+            val={i+1}
+            onClick={() => {hk.step(i+1)}}
+            active={hk.current === i+1}
+            key={"pag_" + i}
+        />)
+    }
+    return <div className="pagination">
+        <Item start onClick={() => {hk.step(1)}}/>
+        <Item prev onClick={hk.prev}/>
+        {items}
+        <Item next onClick={hk.next}/>
+        <Item end onClick={() => {hk.step(hk.max)}}/>
+    </div>
 }
+
 export default Pagination;
