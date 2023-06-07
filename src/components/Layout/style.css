@@ -1,9 +1,12 @@
 /* content-width: 1000px */
 /* 1rem = 8px */
 .layout {
-    padding: 4rem;
+    padding: 16px;
     display: grid;
-    gap: 4rem;
+    gap: 1rem;
+   
+ 
+    
 }
 .layout_2 {
     grid-template-columns: repeat(2, 1fr);
@@ -13,6 +16,7 @@
 }
 .layout_4 {
     grid-template-columns: repeat(4, 1fr);
+   
 }
 .layout_gap-none {
     gap: 0;
@@ -21,7 +25,7 @@
     gap: 2rem;
 }
 .layout__title {
-    font-size: 6rem;
+    font-size: 2rem;
 }
 .layout__title_2 {
     grid-column: 1 / span 2;
@@ -35,8 +39,8 @@
 
 @media screen and (min-width: 1064px) {
     .layout {
-        padding-left: calc(50% - 500px);
-        padding-right: calc(50% - 500px);
+        padding-left: calc(50% - 400px);
+        padding-right: calc(50% - 400px);
     }
     .layout_dt-1 {
         grid-template-columns: 1fr;

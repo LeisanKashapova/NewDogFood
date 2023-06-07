@@ -23,19 +23,11 @@ const Favorites = () => {
     const {userId, baseData} = useContext(Ctx);
     const [likeCards, setLikeCards] = useState(baseData.filter(el => el.likes.includes(userId)));
 
-    // useEffect(() => {
-    //     console.log("ololo")
-    //     console.log(baseData.filter(el => el.likes.includes(userId)));
-    //     setLikeCards(baseData.filter(el => el.likes.includes(userId)));
-    // }, [baseData])
-
-    // useEffect(() => {
-    //     console.log(likeCards)
-    // }, [likeCards])
+   
 const inFavorites = likeCards.length > 0;
 
     
-    //  const clearAll = ""
+   
 
 
     return ( 

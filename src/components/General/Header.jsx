@@ -66,7 +66,7 @@ return <header>
                 </span>  
         </nav>
        
-        <span>{process.env.REACT_APP_USER_AMICA}</span>
+       
     </header>
 }
 export default Header;
