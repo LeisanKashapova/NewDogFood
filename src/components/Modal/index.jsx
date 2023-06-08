@@ -1,4 +1,4 @@
-
+import { Link } from "react-router-dom";
 import {useState, useContext} from "react";
 import {XOctagon} from "react-bootstrap-icons";
 import Ctx from "../../ctx";
@@ -39,9 +39,9 @@ const handleForm = async (e) => {
         body.name = name
         body.group = "group-12"
     }
-    console.log(body);
-    const data = await (isReg ? api.register(body) : api.auth(body))
-    console.log(data);
+    
+const data = await (isReg ? api.register(body) : api.auth(body))
+    
 
 
 if (isReg) {
@@ -106,18 +106,15 @@ const st = {
     />}
 
     <div className="modal-btns">
-{/* если у меня форма регистрации и пароли не равны
-или не введен пароль то тогда кнопка не активна */}
 
- {/* условие разблокировки кнопки */}
-<button type="submit" disabled={isReg && (!pwd || pwd !==pwd2)}> 
+<button className="isreg" type="submit" disabled={isReg && (!pwd || pwd !==pwd2)}> 
 
 {isReg ? "Зарегистрироваться" : "Войти"}
 </button>
 
-<a className="modal-link" onClick={changeForm}>
+<Link className="modal-link" onClick={changeForm}>
 		{isReg ? "Войти" :"Зарегистрироваться"}
-</a>
+</Link>
     </div>
 </form>
         </div>

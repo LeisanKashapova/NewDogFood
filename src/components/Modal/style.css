@@ -13,12 +13,12 @@
 }
 .modal__custom {
     width: 500px;
-   
-    background-color: rgb(247, 247, 68);
+    background-color: rgb(48, 202, 120);
     padding: 20px;
     box-sizing: border-box;
     position: relative;
     border-radius: 15px;
+   
     display: block;
     height: auto; 
 }
@@ -27,34 +27,42 @@
     top: 10px;
     right: 6px;
     border: none;
-    border-radius: 15px;
+    border-radius: 25px;
+   
     background-color: transparent;
     outline: none;
     cursor: pointer;
     font-size: 1.2rem;
-    
 }
-
-
+input {
+    border-radius: 10px;
+   
+}
+.isreg {
+    border-radius: 10px;
+    font-size: 20px;
+    
+   
+}
 h3 {
     margin: 0;
     margin-bottom: 20px;
 }
 .modal__custom form {
     display: grid;
-    gap: 10px;
-    
+    gap: 15px;
 }
 .modal-btns {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     font-size: 14px;
-    
 }
 .modal-link {
     border: 1px solid;
+    border-radius: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    font-size: 20px;
 }
