@@ -32,7 +32,7 @@ const Footer = () => {
             <h3>Мы на связи</h3>
             <div>
                 <a href="tel:+7999000000"><h3>8 (999) 99-99-99</h3></a>
-                <a href="mailto:dogfood.ru@gmail.com">dogfood.ru@gmail.com</a>
+                <a href="mailto:dogfood.ru@gmail.com"><h3>dogfood.ru@gmail.com</h3></a>
             </div>
             <div className="footer__contacts-social">
                 <a href="/"><LogoTG /></a>

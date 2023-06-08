@@ -108,5 +108,17 @@ class Api {
         }).then(res => res.json())
     }
 }
+class NewsApi {
+    setNews() {
+        return fetch(`https://newsapi.org/v2/everything?q=собаки&apiKey=${process.env.REACT_APP_NEWS_KEY}`)
+        
+        
+        .then(res => res.json())
+    }
+    setNewsLenta () {
+        return fetch(`https://newsapi.org/v2/everything?q=собаки&sources=lenta&apiKey=${process.env.REACT_APP_NEWS_KEY}`)
+        .then(res => res.json())
+    }
+}
 
 export default Api;

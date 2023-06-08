@@ -12,7 +12,7 @@ import Sorting from "../../components/Sorting";
 
 
 
-const Catalog = ({goods, userId, setBaseData}) => {
+const Catalog = ({goods, userId}) => {
 	const {searchResult} = useContext(Ctx);
 	const paginate = usePagination(goods, 9)
 
@@ -39,18 +39,7 @@ const Catalog = ({goods, userId, setBaseData}) => {
 <BsCard img={pro.pictures} {...pro} user={userId}/>
 				</Col>
 			))}
-	{/* {
-	paginate.setDataPerPage().length > 0 &&
-	<Col xs={12} className="text-center d-flex justify-content-center flex-column align-items-center overflow-hidden">
-		<Pagination hk={paginate} /></Col>
-	} */}
-	{/* {paginate.setDataPerPage().map(g => 
-	<BsCard
-            key={g._id} 
-            {...g} 
-            img={g.pictures} 
-            setBaseData={setBaseData}
-        />)}  */}
+	
 		<Pagination hk={paginate} />
 		</Row>
 	</Container>

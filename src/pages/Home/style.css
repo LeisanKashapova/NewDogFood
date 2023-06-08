@@ -42,9 +42,11 @@
     display: flex;
     justify-content: center;
     margin: 0 auto 10px;
+    width: 100%;
 }
 .promotional-container {
     width: 84%;
+    
     display: grid;
     justify-content: center;
     justify-items: center;
@@ -71,18 +73,10 @@
 
 
 @media (max-width: 576px){
-    /* .promotional-container {
-        grid-template-columns: repeat(1, 1fr);
-    } */
     .news-container {
         grid-template-columns: repeat(3, 1fr);
       }
-    /* .banner-wrap {
-        display: flex;
-        justify-content: center;
-        margin: 0 auto 10px;
-        max-height: 30vh;
-    } */
+    
     .info {
         font-size: 15px;
         gap: 17px;

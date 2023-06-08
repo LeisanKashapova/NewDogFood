@@ -9,41 +9,38 @@
     top: 330px;
     background-size: cover;
     background-position: center;
-    min-height: 250px;
-    max-height: 25vh;
+    /* min-height: 250px;
+    max-height: 25vh; */
     display: grid;
     border-radius: 25px;
     background-repeat: no-repeat; 
 }
 
 
-.banner__text {
-
+.banner__text h2 {
+   
     padding: 20px;
-    font-size: 10px;
+    
     color: black;
-    opacity: 50%;
-    /* font-family: 'Comic Sans MS', cursive, sans-serif; */
-    /* font-weight: 800; */
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    /* justify-content: flex-start; */
+   
+    font-family: cursive, sans-serif;
+    font-weight: 800;
+    /* display: grid; */
+    /* grid-template-columns: 1fr 1fr; */
+   
     align-items: center;
 }
-
-/* .banner::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #c0c0c0;
-    opacity: .6;
-} */
-
-/* @media screen and (min-width: 1064px) {
-    .banner__text {
-        font-size: 1rem;
+@media (max-width: 576px) {
+    .banner__text h2 {
+        font-weight: 500;
+        padding: 10px;
+        font-size: 20px;
     }
-} */
+    .bannertop {
+        width: 100%;
+        top: 300px;
+    }
+}
+
+
+

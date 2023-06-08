@@ -4,3 +4,10 @@
   color: gray;
   font-size: 1 rem;
 } 
+/* @media (max-width: 576px) {
+  .search-result {
+    gap: 10px;
+  }
+
+  } */
+
