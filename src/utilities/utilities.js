@@ -1,6 +1,6 @@
-export const getRate = (product) => {
-    if (product.reviews) {
-        const rate = product.reviews.reduce((avg, review, i, arr) => {
+export const getRate = (data) => {
+    if (data.reviews) {
+        const rate = data.reviews.reduce((avg, review, i, arr) => {
             if (i !== arr.length - 1) {
                 return avg += review.rating
             } else {

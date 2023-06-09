@@ -24,9 +24,7 @@ const BsCard = ({
     const likeHandler = () => {
         setIsLike(!isLike);
         setLikeFlag(true);
-        console.log(setIsLike, "oO");
-       
-    }
+}
    
     useEffect(() => {
         if (likeFlag) {
@@ -37,7 +35,7 @@ const BsCard = ({
                     
                     api.getProducts()
                     .then(newData => {
-                        console.log(newData)
+                        
                         setBaseData(newData.products);
                     })
                 })
