@@ -23,7 +23,7 @@ const Header = ({
     
 }) => {
     const {basket, baseData, userId, goods} = useContext(Ctx);
-    const [likeCards, setLikeCards] = useState(baseData.filter(el => el.likes.includes(userId)));
+    // const [likeCards, setLikeCards] = useState(baseData.filter(el => el.likes.includes(userId)));
     const [likeCnt, setLikeCnt] = useState(0);
     const login = () => {
         setModalOpen(true)}
@@ -34,7 +34,10 @@ const Header = ({
 
    
 return <header>
-        <Link to="/"><Logo /></Link>
+    <div className="header__logo">
+    <Link to="/"><Logo /></Link>
+    </div>
+       
         <div className="search-block">
             <Search 
             data={searchArr}

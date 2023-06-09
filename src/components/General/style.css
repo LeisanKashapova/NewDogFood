@@ -8,18 +8,18 @@ header {
     gap: 12px;
     height: 100px;
 }
+.header__logo svg {
+    width: 200px;
+    height: 56px;
+}
+
 header .search-block {
     display: flex;
     flex-grow: 1;
     justify-content: center;
+    width: 50%;
 }
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-weight: bold;
-    font-size: 1.2rem;
-}
+
 .header__babble {
     position: absolute;
     right: 40px;
@@ -46,9 +46,7 @@ header .search-block {
     padding: 5px 10px;
     border-radius: 30px;
 }
-.logo img {
-    height: 30px;
-}
+
 .header__menu,
 .header__menu>span {
     position: relative;
@@ -71,7 +69,13 @@ header .search-block {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    margin-left: 100px;
+    margin-left: 60px;
+}
+.footer__nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 20px;
 }
 .footer__nav-list {
     display: flex;
@@ -101,6 +105,11 @@ h3 {
     display: flex;
     gap: 12px;
 }
+.gap_nav {
+    display: flex;
+    justify-content: space-between;
+    gap: 60px;
+}
 /* MOBILE*/
 @media (max-width: 576px){
     header {
@@ -110,11 +119,24 @@ h3 {
     header .search-block {
       order: 0;
       width: 40%;
+      flex-grow: 0;
     }
-    .header__logo {
-        height: 15px;
-        width: 20px;
-        font-size: 1rem;
+    .header__logo svg {
+        padding: 10px;
+        width: 200px;
+        height: 56px;
+        margin: 5px;
+        flex-grow: 1;
+      
+    }
+    
+    .header__logo  {
+        padding: 0;
+        width: 15px;
+       
+        margin: 5px;
+        flex-grow: 1;
+      
     }
     .header__menu,
     .header__menu>span {
@@ -123,9 +145,7 @@ h3 {
     align-items: center;
     gap: 5px;
 }
-.logo {
-    max-width: 70px;
-}
+
 .header__babble {
     font-size: 7px;
     line-height: 8px;
@@ -145,11 +165,22 @@ h3 {
     padding: 15px 25px;
 }
 .footer__logo {
-    width: 50%;
-    margin-left: 0;
    
-    
+    margin-left: 0;
 }
+.footer__logo svg {
+    /* padding: 10px; */
+    width: 150px;
+    height: 36px;
+    /* margin: 5px; */
+    /* flex-grow: 1; */
+      
+    }  
+.gap_nav {
+    display: flex;
+    gap: 20px;
+ }  
+
 span {
     margin: 0;
     font-size: 15px;
@@ -158,12 +189,23 @@ span {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    gap: 10px;
+    gap: 7px;
+}
+.footer__nav a {
+    text-decoration: none;
+    color: #1A1A1A;
+    font-size: 15px;
 }
 .footer__nav-list a {
     text-decoration: none;
     color: #1A1A1A;
     font-size: 15px;
+}
+.footer__nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 7px;
 }
 .footer__contacts {
     display: flex;

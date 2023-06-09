@@ -4,7 +4,7 @@ import Ctx from "../../ctx";
 import { sort } from "../../utilities/utilities";
 
 const Sorting = () => {
-    const { BaseData, setBaseData } = useContext(Ctx)
+    const { products, setProducts  } = useContext(Ctx)
     const filters = [
         {filter: "popular", title: "Популярные"},
         {filter: "new", title: "Новинки"},
@@ -18,7 +18,7 @@ const Sorting = () => {
         <div className="sorting">
             {filters.map(filter =>
  <span className="sorting__point" 
-  onClick={() => sort(BaseData, filter.filter, setBaseData)}>{filter.title}
+  onClick={() => sort( products, filter.filter, setProducts)}>{filter.title}
   </span>)}
         </div>
     )

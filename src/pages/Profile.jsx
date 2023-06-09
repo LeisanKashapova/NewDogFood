@@ -24,7 +24,7 @@ const Profile = ({setUser}) => {
 			body =  {avatar: userData.avatar};
 		}
 		body[name] = val;
-		console.log(body);
+		
 		api.updAdmin(body, name === "avatar").then(data => setUserData(data));
 	}
 

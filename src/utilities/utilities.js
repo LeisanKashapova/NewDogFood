@@ -1,3 +1,5 @@
+// import { useState } from "react";
+
 export const getRate = (data) => {
     if (data.reviews) {
         const rate = data.reviews.reduce((avg, review, i, arr) => {
@@ -42,33 +44,54 @@ export const filterMyFavProduct = (baseData, userID) => {
     
     return fav
 }
-export  const sort = (cards, filter, hookFunc) => {
+
+export  const sort = (goods, filter, hookFunc) => {
     if (filter === "popular") {
-        const filtered = cards.sort((a, b) => (b.likes.length - a.likes.length))
+        const filtered = goods.sort((a, b) => (b.likes.length - a.likes.length))
+       
         return hookFunc([...filtered])
     }
     if (filter === "new") {
-        const filtered = cards.sort((a, b) => (new Date(b.created_at) - new Date(a.created_at)))
+        const filtered = goods.sort((a, b) => (new Date(b.created_at) - new Date(a.created_at)))
         return hookFunc([...filtered])
     }
     if (filter === "cheap") {
-        const filtered = cards.sort((a, b) => (a.price - (a.price * a.discount / 100)) - (b.price - (b.price * b.discount / 100)))
+        const filtered = goods.sort((a, b) => (a.price - (a.price * a.discount / 100)) - (b.price - (b.price * b.discount / 100)))
         return hookFunc([...filtered])
     }
     if (filter === "costly") {
-        const filtered = cards.sort((a, b) => (b.price - (b.price * b.discount / 100)) - (a.price - (a.price * a.discount / 100)))
+        const filtered = goods.sort((a, b) => (b.price - (b.price * b.discount / 100)) - (a.price - (a.price * a.discount / 100)))
         return hookFunc([...filtered])
     }
     if (filter === "topRate") {
-        const filtered = cards.sort((a, b) => (getRate(b) - getRate(a)))
+        const filtered = goods.sort((a, b) => (getRate(b) - getRate(a)))
         return hookFunc([...filtered])
     }
     if (filter === "reviews") {
-        const filtered = cards.sort((a, b) => (b.reviews.length - a.reviews.length))
+        const filtered = goods.sort((a, b) => (b.reviews.length - a.reviews.length))
         return hookFunc([...filtered])
     }
     if (filter === "sale") {
-        const filtered = cards.sort((a, b) => (b.discount - a.discount))
+        const filtered = goods.sort((a, b) => (b.discount - a.discount))
         return hookFunc([...filtered])
     }
 }
+
+
+
+// const [goods, setGoods] = useState([]);
+// const sort = (vector) => {
+//     const [sort, setSort] = useState(null);
+
+//     if (vector === sort) {
+//         setSort(null)
+        
+// goods.sort((a, b) => 
+// new Date(a.created_at).getTime() - new Date(b.created_at).getTime());
+//     } else {
+//         setSort(vector)
+//         goods.sort((a, b) => {
+//             return vector === "up" ? (a.price - b.price) : (b.price - a.price)
+//         })
+//     }
+// }

@@ -74,7 +74,7 @@ const Product = () => {
 	const delHandler = () => {
 		api.delSingleProduct(id)
 			.then(data => {
-				console.log(data)
+				
 				setBaseData(prev => prev.filter(el => el._id !== id));
 				navigate("/catalog");
 			})

@@ -31,7 +31,7 @@ const App = () => {
     const [user, setUser] = useState(localStorage.getItem("userStore"));
     const [userId, setUserId] = useState(localStorage.getItem("userStore-id"));
     const [token, setToken] = useState(localStorage.getItem("token"));
-    
+   
     const [baseData, setBaseData] = useState([]);
     const [goods, setGoods] = useState(baseData);
     const [searchResult, setSearchResult] = useState("");
@@ -96,14 +96,15 @@ const App = () => {
 
     useEffect(() => {
         setApi(new Api(token));
-        console.log("token", token);
+      
      }, [token])
 
     useEffect(() => {
         if (token) {
             api.getProducts()
             .then(data => {
-                console.log(data)
+                setGoods(data.products.sort((a, b) =>
+                new Date(b.created_at).getTime() - new Date(a.created_at).getTime()));
                 setBaseData(data.products);
             })
 
@@ -113,7 +114,7 @@ const App = () => {
     }, [api])
 
     useEffect(() => {
-       console.log(goods)
+      
     }, [baseData])
 
     return (
@@ -134,6 +135,7 @@ const App = () => {
             inFavorites,
             news,
             newsLenta
+          
         }}>
             <Header 
                 user={user} 

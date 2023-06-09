@@ -16,7 +16,8 @@ const Footer = () => {
             <Logo />
             <span>© «Интернет-магазин DogFood.ru»</span>
         </div>
-        <div className="footer__nav-list">
+        <div className="gap_nav">
+        <div className="footer__nav">
             <a href="/">Каталог</a>
             <a href="/">Акции</a>
             <a href="/">Новости</a>
@@ -27,6 +28,7 @@ const Footer = () => {
             <a href="/">Часто спрашивают</a>
             <a href="/">Обратная связь</a>
             <a href="/">Контакты</a>
+        </div>
         </div>
         <div className="footer__contacts">
             <h3>Мы на связи</h3>

@@ -9,7 +9,6 @@ import Promo from "../../components/Promo/Promo";
 import addsData from "../../assets/data/adds.json";
 import Carousel from "../../components/Carousel";
 import News from "../../components/news";
-// import Layout from "../../components/Layout";
 import Ctx from "../../ctx";
 
 
@@ -33,8 +32,8 @@ return (
 <div className="banner-wrap">
 	<BannerTop />
 </div> 
-		
-<Slider desktop={3} mobile={2}/>
+ <Slider desktop={3} mobile={2}/>	
+
 		
 			
 			<div className="promotional-container">

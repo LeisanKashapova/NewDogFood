@@ -25,7 +25,7 @@ const Slider = ({desktop = 4, mobile = 2}) => {
     }, [])
 
     useEffect(() => {
-        console.log(baseData)
+       
         if (baseData.length) {
            
             setGds(baseData.reduce((acc, el, i) => {
