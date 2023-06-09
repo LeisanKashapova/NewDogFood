@@ -2,7 +2,7 @@ import {useState, useEffect, useContext} from "react";
 import {useParams, Link, useNavigate} from "react-router-dom";
 import { Star, Truck, Award, StarFill, Basket2, Plus, SuitHeartFill, SuitHeart } from "react-bootstrap-icons";
 import { getEnding, getRate } from "../../utilities/utilities";
-// import likeHandler from "../../components/BsCard";
+import BackBtn from "../../components/BackBtn";
 import {Container, Row, Col, Table, Card, Button, Form} from "react-bootstrap";
 import Ctx from "../../ctx";
 const Product = () => {
@@ -36,12 +36,7 @@ const Product = () => {
             key={`${StarFill}` + i} 
             fill="#FFE44D" stroke="#1A1A1A" />) : stars.push(<Star key={`${Star}` + i} />)
     }
-    // let isLiked = data.likes ? data.likes.includes(data._id) : false
-	
-// 	const likeHandler = () => {
-//         setIsLike(!isLike);
-        
-// }
+ 
    
 
 
@@ -82,7 +77,8 @@ const Product = () => {
 
 return  <div className="">
 	<div className="">
-	<Link to={`/catalog#pro_${id}`}>Назад</Link>
+	{/* <Link to={`/catalog#pro_${id}`}>Назад</Link> */}
+	<BackBtn />
 	{data.name
 	? <>
 	{data.author._id === userId && <Basket2 onClick={delHandler}/>}

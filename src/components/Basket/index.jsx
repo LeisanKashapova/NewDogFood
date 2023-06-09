@@ -4,6 +4,7 @@ import {Trash3} from "react-bootstrap-icons";
 import Ctx from "../../ctx";
 import {Link} from "react-router-dom";
 import { EmojiFrown, Journals } from "react-bootstrap-icons";
+import BackBtn from "../BackBtn";
 import "./style.css"
 
 
@@ -60,6 +61,7 @@ const Basket = ({}) => {
     
         inBas ? 
             (<Container style={{gridTemplateColumns: "1fr"}}>
+                <BackBtn />
         <h3>Корзина</h3>
         <tr><button onClick={() => del(ids)}>Очистить корзину</button></tr>
         <Table>

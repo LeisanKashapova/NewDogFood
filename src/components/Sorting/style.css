@@ -1,17 +1,26 @@
 .sorting {
     display: flex;
+    justify-content: center;
     gap: 16px;
     padding: 10px 16px;
     border-radius: 10px;
-    box-shadow: 1px 5px 10px 0px #b0b0b0;
+    box-shadow: 1px 4px 8px 0px #b0b0b0;
 }
-
 .sorting__point {
     cursor: pointer;
-    border-radius: 15px;
-    padding: 1px 5px;
+    border-radius: 10px;
+    padding: 1px 3px;
 }
-
 .sorting__point:hover {
     box-shadow: 0 0 5px 1px grey;
+}
+@media (max-width: 576px){
+    .sorting {
+        
+        font-size: 15px;
+        gap: 8px;
+        padding: 7px 9px;
+        border-radius: 10px;
+        box-shadow: 1px 4px 8px 0px #b0b0b0;
+    } 
 }

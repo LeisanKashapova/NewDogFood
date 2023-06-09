@@ -28,7 +28,6 @@
     right: 6px;
     border: none;
     border-radius: 25px;
-   
     background-color: transparent;
     outline: none;
     cursor: pointer;
@@ -36,13 +35,10 @@
 }
 input {
     border-radius: 10px;
-   
 }
 .isreg {
     border-radius: 10px;
     font-size: 20px;
-    
-   
 }
 h3 {
     margin: 0;

@@ -49,14 +49,7 @@ return (
 			<Promo {...addsData[3]}/>
 			<Promo {...addsData[4]}/>
 			</div>
-{/* 			
-	{news.length > 0 && <Layout mb={2} dt={4}>
-        <Carousel
-         data={news.map((el, i) => <News key={`new-${i}`} data={el} isTitled={true} />)}
-         cnt={window.innerWidth < 1064 ? 2 : 4}
-            />
- </Layout>} */}
-{/* <div className="slider2-wrap"><Slider/></div> */}
+
 {news.length > 0 && <div className="news-container">
         <Carousel
          data={news.map((el, i) => <News key={`new-${i}`} data={el} isTitled={true} />)}

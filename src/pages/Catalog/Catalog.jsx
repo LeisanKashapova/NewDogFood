@@ -1,4 +1,4 @@
-import {useContext, useEffect, useState} from "react";
+import {useContext, useEffect} from "react";
 import {Container, Row, Col} from "react-bootstrap";
 import BsCard from "../../components/BsCard";
 import Ctx from "../../ctx";
@@ -6,16 +6,18 @@ import "./Catalog.css";
 import usePagination from "../../hooks/usePagination";
 import Pagination from "../../components/Pagination";
 import Sorting from "../../components/Sorting";
+import BackBtn from "../../components/BackBtn";
 
 
-// import Sorting from "../../components/Sorting";
+
+
 
 
 
 const Catalog = ({goods, userId}) => {
 	const {searchResult} = useContext(Ctx);
 	const paginate = usePagination(goods, 9);
-	// const [sort, setSort] = useState(null)
+	
 
 	useEffect(() => {
 		paginate.step(1);
@@ -23,15 +25,11 @@ const Catalog = ({goods, userId}) => {
 
 	return ( <>
 
-	{/* {search && <searchResult />}
-    {goods.length === 0 && <NotFound 
-	text="Простите, по вашему запросу товаров не найдено" 
-	buttonText="На главную" 
-	buttonPath="/" 
-	/>} */}
+	
             
 	
-	{goods.length && <Sorting />}
+	{goods.length && <div className="sort"><Sorting /></div>}
+	<BackBtn />
 
 	<Container className="d-block">
 		<Row className="g-4">

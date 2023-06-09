@@ -81,7 +81,7 @@ const AddProduct = () => {
                
                 if (!data.err && !data.error) {
                     clearForm();
-                    // перенаправление на страницу с новым товар
+                
                     navigate(`/product/${data._id}`)
                     setBaseData(prev => [...prev, data]);
                 }

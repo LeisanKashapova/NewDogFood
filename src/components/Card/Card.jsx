@@ -4,18 +4,7 @@ import {SuitHeart, SuitHeartFill} from "react-bootstrap-icons"
 import "./card.css";
 import Ctx from "../../ctx";
 
-// const Card = (props) => {
-//     return <div className="card-lite">
-//         <img src={props.img} alt={props.name}/>
-//         <h4>{props.price} ₽</h4>
-//         <p>{props.name}</p>
-//         <button>Купить</button>
-//     </div>
-// }
 
-/*
-    Для получения или установки товара как избранное, надо проверить, есть ли в массиве likes моё id (_id => ls => user12-id)
-*/
 const Card = ({
     discount,
     likes,
@@ -34,13 +23,13 @@ const Card = ({
     const likeHandler = () => {
         setIsLike(!isLike);
         setBaseData((old) => old.map(el => {
-            // меняем в общем массиве с товарами только наш товар (на который кликнули)
+           
             if (el._id === _id) {
-                // Если у меня был лайк
+                
                 isLike 
-                // Я его удаляю (из массива убираю ненужное значение)
+                
                 ? el.likes = el.likes.filter(lk => lk !== user)
-                // Иначе, добавим лайк
+                
                 : el.likes.push(user);
             }
             return el;
@@ -50,7 +39,7 @@ const Card = ({
     const addToBasket = (e) => {
         e.preventDefault();
         e.stopPropagation();
-        // Нет проверки на то, что товар уже есть в корзине и нужно увеличить его кол-во, как на стр одного товара
+  
         setBasket(prev => [...prev, {
             id: _id,
             price,

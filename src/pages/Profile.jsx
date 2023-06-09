@@ -4,7 +4,7 @@ import Ctx from "../ctx";
 import {Button, Container, Row, Col, Figure} from "react-bootstrap";
 import UpdatedInput from "../components/UpdatedInput";
 import BsCard from "../components/BsCard";
-
+import BackBtn from "../components/BackBtn";
 const Profile = ({setUser}) => {
     const navigate = useNavigate()
     const { api, baseData } = useContext(Ctx);
@@ -42,6 +42,7 @@ const Profile = ({setUser}) => {
     return <>
     <Container style={{gridTemplateColumns: "1fr"}} className="px-0">
 			<Row>
+			<BackBtn />
 				{userData?.name && <>
 					<Col xs={12} sm={6}><h1>Личный кабинет</h1>
 						<div><UpdatedInput

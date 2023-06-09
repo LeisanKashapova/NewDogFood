@@ -4,6 +4,8 @@ import BsCard from "../../components/BsCard";
 import Ctx from "../../ctx";
 import {Link} from "react-router-dom";
 import { EmojiFrown, Journals } from "react-bootstrap-icons";
+import BackBtn from "../../components/BackBtn";
+
 
 const ShowNothingFav = () => {
     return (
@@ -21,26 +23,28 @@ const ShowNothingFav = () => {
 }
 const Favorites = () => {
     const {userId, baseData} = useContext(Ctx);
-    const [likeCards, setLikeCards] = useState(baseData.filter(el => el.likes.includes(userId)));
-
-   
-const inFavorites = likeCards.length > 0;
+    const [likeCards] = useState(baseData.filter(el => el.likes.includes(userId)));
 
 return ( 
-        inFavorites ?
     <Container className="d-block">
         <Row className="g-4">
             <Col xs={12}>
-                <h3 style={{margin: 0, gridColumnEnd: "span 3"}}>Любимые товары</h3>
+            <BackBtn />
+        {likeCards.length > 0 && 
+        <h3 style={{margin: 0, gridColumnEnd: "span 3"}}>Любимые товары</h3>}  
             </Col>
-            {baseData.filter(el => el.likes.includes(userId)).map((pro, i) => (
+        {likeCards.length === 0 && <ShowNothingFav/>}
+        {baseData.filter(el => el.likes.includes(userId)).map((pro, i) => (
                 <Col key={i} xs={12} sm={6} md={4} lg={3}>
                     <BsCard img={pro.pictures} {...pro} user={userId}/>
                 </Col>
             ))}
+
+
+                  
         </Row>
     </Container>
-    : <ShowNothingFav/>
+    
     )
 }
 

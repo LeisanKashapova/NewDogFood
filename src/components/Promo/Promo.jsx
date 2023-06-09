@@ -4,7 +4,7 @@ import "./style.css";
 
 
 
-const Adds = ({name, img, text, tag}) => {
+const Adds = ({name, img, text}) => {
 
 const imgStyle = {
     backgroundImage: `url(${Corgi[img]})`
