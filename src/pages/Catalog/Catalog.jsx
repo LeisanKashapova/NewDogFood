@@ -8,34 +8,21 @@ import Pagination from "../../components/Pagination";
 import Sorting from "../../components/Sorting";
 import BackBtn from "../../components/BackBtn";
 
-
-
-
-
-
-
 const Catalog = ({goods, userId}) => {
 	const {searchResult} = useContext(Ctx);
 	const paginate = usePagination(goods, 9);
-	
-
 	useEffect(() => {
 		paginate.step(1);
 	   }, [searchResult])
-
 	return ( <>
 
-	
-            
-	
-	{goods.length && <div className="sort"><Sorting /></div>}
+{goods.length && <div className="sort"><Sorting /></div>}
 	<BackBtn />
-
-	<Container className="d-block">
-		<Row className="g-4">
+<Container className="d-block">
+	<Row className="g-4">
 		{searchResult && <Col xs={12} className="search-result">
-				 {searchResult}
-			</Col> }
+			{searchResult}
+						</Col> }
 			
 {paginate.setDataPerPage().map((pro, i) => (
 

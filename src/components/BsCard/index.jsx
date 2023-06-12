@@ -65,7 +65,7 @@ const BsCard = ({
     return <Card className="pt-3 h-100" id={"pro_" + _id}>
         
         {userId && <span className="card-like" onClick={likeHandler}>
-            {isLike ? <SuitHeartFill/> : <SuitHeart/>}
+            {isLike ? <SuitHeartFill className="SuitHeartFill"/> : <SuitHeart className="SuitHeart"/>}
             </span>}
 
        
@@ -83,15 +83,9 @@ const BsCard = ({
                 >
                 
             <Cart4 onClick={addToBasket} className="cart4"/>
-          
-              
-
-               
-               
-            </Button>
+             </Button>
             <Button
             disabled={!inBasket}
-                
             variant="outline-warning"
             className="w-100 position-relative"
             style={{zIndex: "1"}}

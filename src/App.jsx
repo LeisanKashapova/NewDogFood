@@ -1,21 +1,21 @@
 import {useState, useEffect} from "react";
 import {Routes, Route} from "react-router-dom";
-import Api from "./Api"
-import Ctx from "./ctx"
+import Api from "./Api";
+import Ctx from "./ctx";
 import Modal from "./components/Modal";
 import {Header, Footer} from "./components/General";
 
 import Home from "./pages/Home/Home";
 import Catalog from "./pages/Catalog/Catalog";
-import OldPage from "./pages/Old";
+
 import Profile from "./pages/Profile";
 import Product from "./pages/ProductPage/index";
 import AddProduct from "./pages/AddProduct";
 import Favorites from "./pages/Favorites/Favorite";
-import Notfoundpage from "./pages/Notfoundpage/Notfoundpage"
+import Notfoundpage from "./pages/Notfoundpage/Notfoundpage";
 import Basket from "./components/Basket";
 import staticNews from "./assets/data/news.json";
-import inFavorites from "./pages/Favorites/Favorite"
+import inFavorites from "./pages/Favorites/Favorite";
 
 
 
@@ -103,6 +103,7 @@ const App = () => {
         if (token) {
             api.getProducts()
             .then(data => {
+                console.log(baseData);
                 setGoods(data.products.sort((a, b) =>
                 new Date(b.created_at).getTime() - new Date(a.created_at).getTime()));
                 setBaseData(data.products);
@@ -156,14 +157,13 @@ const App = () => {
             userId={userId}
              />
     }/>
-    <Route path="/old" element={<OldPage goods={goods}/>}/>
+    
     <Route path="/profile" element={
         <Profile user={user} setUser={setUser}/>}/>
     <Route path="/product/:id" element={<Product />}/>
     <Route path="/add/product" element={<AddProduct/>}/>
     <Route path="/favorites" element={<Favorites />}/>
     <Route path="*" element={<Notfoundpage />} />
-    <Route path="/product/:id" element={<Product />} />
     <Route path="/basket" element={<Basket/>}/>
 </Routes>
                

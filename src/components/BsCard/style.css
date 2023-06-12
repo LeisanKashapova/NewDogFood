@@ -5,3 +5,12 @@
 .trash3 {
     float: right;
 }
+.SuitHeartFill {
+    color: red;
+    float: right;
+    margin: 0 10px 0 10px;
+}
+.SuitHeart {
+    float: right;
+    margin: 0 10px 0 10px; 
+}

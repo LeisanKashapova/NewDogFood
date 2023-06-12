@@ -77,7 +77,7 @@ const Product = () => {
 
 return  <div className="">
 	<div className="">
-	{/* <Link to={`/catalog#pro_${id}`}>Назад</Link> */}
+	<Link to={`/catalog#pro_${id}`}>Назад</Link>
 	<BackBtn />
 	{data.name
 	? <>
