@@ -1,13 +1,15 @@
 import {useState, useEffect, useContext} from "react";
 import {useParams, Link, useNavigate} from "react-router-dom";
-import { Star, Truck, Award, StarFill, Basket2, Plus, SuitHeartFill, SuitHeart } from "react-bootstrap-icons";
+import { Star, Truck, Award, StarFill, Basket2, Plus, SuitHeartFill, SuitHeart, Trash3 } from "react-bootstrap-icons";
 import { getEnding, getRate } from "../../utilities/utilities";
 import BackBtn from "../../components/BackBtn";
-import {Container, Row, Col, Table, Card, Button, Form} from "react-bootstrap";
+import {Container, Row, Col, Table, Card, Button, Form, ButtonGroup} from "react-bootstrap";
+
 import Ctx from "../../ctx";
+
 const Product = () => {
 	const { id } = useParams()
-	const { api, userId, setBaseData } = useContext(Ctx);
+	const { api, userId, setBaseData, goods, setGoods, basket, setBasket } = useContext(Ctx);
 
 	const [data, setData] = useState({});
 	// const [isLike, setIsLike] = useState();
@@ -36,7 +38,7 @@ const Product = () => {
             key={`${StarFill}` + i} 
             fill="#FFE44D" stroke="#1A1A1A" />) : stars.push(<Star key={`${Star}` + i} />)
     }
- 
+	
    
 
 
@@ -62,10 +64,10 @@ const Product = () => {
 	useEffect(() => {
 		api.getSingleProduct(id)
 			.then(serverData => {
-				
-				setData(serverData);
+			setData(serverData);
 			})
 	}, [])
+
 	const delHandler = () => {
 		api.delSingleProduct(id)
 			.then(data => {
@@ -74,10 +76,47 @@ const Product = () => {
 				navigate("/catalog");
 			})
 	}
+	
 
-return  <div className="">
-	<div className="">
-	<Link to={`/catalog#pro_${id}`}>Назад</Link>
+	const [cnt, setCnt] = useState(0);
+	const inBasket = basket.filter(el => el.id === id).length > 0;
+	const addToBasket = !inBasket
+		? (e) => {
+			e.preventDefault()
+			e.stopPropagation()
+			cnt > 1 ? setCnt(0) : setCnt(1)
+			setBasket(prev => [...prev, {
+				id,
+				price: data.price,
+				discount: data.discount,
+				cnt: 1
+			}])
+		}
+		: (() => { });
+
+		const inc = (id) => {
+			setBasket(prev => prev.map(el => {
+				if (el.id === id) {
+					el.cnt++
+				}
+				return el;
+			}))
+		}
+		const dec = (id) => {
+			setBasket(prev => prev.map(el => {
+				if (el.id === id) {
+					el.cnt--
+				}
+				return el;
+			}))
+		}
+		const del = (id) => {
+			setBasket(prev => prev.filter(el => el.id !== id))
+		}
+
+return  <div className="product">
+	
+	
 	<BackBtn />
 	{data.name
 	? <>
@@ -104,32 +143,89 @@ return  <div className="">
 			{data.price - (data.price * data.discount) / 100} ₽</span> 
 			: <span className="product__price black">
 				{data.price - (data.price * data.discount) / 100} ₽</span>}
-				<div className="pruduct-action-buttons">
+				{/* <div className="pruduct-action-buttons">
 				<div className="product__quantity-counter">
 					<button className="quantity-counter-btn">-</button>
          				<span>0</span>
          			<button className="quantity-counter-btn">+</button>	
 				</div>
 				<button className="product__card-btn">В корзину</button>
-				</div>
-				<div className="product-favorite">
+				</div> */}
 
-				{/* <span onClick={() => setLike(_id, isLiked)}>
-            <Like fill={isLiked ? "red" : "none"}/> В избранное</span> */}
-{/* 
-			 {userId && <span className="card-like" onClick={likeHandler}>
-            {isLiked ? <SuitHeartFill/> : <SuitHeart/>}
-            </span>} */}
 
-				</div>
-		<div className="placeholrer-delivery">
-        	<Truck width="24" height="24" />
-    			<div className="placeholrer-delivery__text">
-        			<h3>Доставка по всему Миру!</h3>
-         <p>Доставка курьером — <b>от 399 ₽</b></p>
-         <p>Доставка в пункт выдачи — <b>от 199 ₽</b></p>
-    			</div>
-    	</div>
+
+
+{basket.map((el) => el.id === id &&
+	<Table>
+		<thead>
+			<tr >
+				<td>Количество товара в корзине</td>
+				<td >Удалить</td>
+				<td >Цена товара</td>
+				<td >Сумма со скидкой</td>
+			</tr>
+		</thead>
+	<tbody>
+		<tr>
+		<td className="align-middle">
+			<ButtonGroup>
+				<Button
+					variant="warning"
+					disabled={el.cnt === 1}
+					onClick={() => dec(el.id)}
+					>-</Button>
+					<Button variant="light" disabled>{el.cnt}</Button>
+				<Button variant="warning" onClick={() => inc(el.id)}>+</Button>
+			</ButtonGroup>
+		</td>
+
+		<td className="align-middle">
+			<Trash3 onClick={() => del(el.id)} style={{ cursor: "pointer" }} />
+		</td>
+<td className="align-middle">
+	{el.price} ₽
+</td>
+		<td style={{ verticalAlign: "middle" }}>
+			{el.discount > 0
+			? <>
+			<span className="text-danger">{Math.ceil(el.price * el.cnt * ((100 - el.discount) / 100))} ₽</span>
+			<del className="ms-2 small text-secondary d-inline-block">{el.price * el.cnt} ₽</del>
+			</>
+			: <span>{el.price * el.cnt} ₽</span>}
+		</td>
+</tr>
+</tbody>
+</Table>
+)}
+<Button
+	onClick={addToBasket}
+	variant="warning"
+	disabled={inBasket}
+	>
+{!inBasket
+? "Добавить в корзину"
+: "В корзине"
+}
+</Button>
+
+
+
+<div className="product-favorite">
+{/* <span onClick={() => setLike(_id, isLiked)}>
+    <Like fill={isLiked ? "red" : "none"}/> В избранное</span> */}
+{/* {userId && <span className="card-like" onClick={likeHandler}>
+  {isLiked ? <SuitHeartFill/> : <SuitHeart/>}
+  </span>} */}
+</div>
+
+<div className="placeholrer-delivery">
+    <Truck width="24" height="24" />
+    <div className="placeholrer-delivery__text">
+        <h3>Доставка по всему Миру!</h3>
+        <p>Доставка курьером — <b>от 399 ₽</b></p>
+        <p>Доставка в пункт выдачи — <b>от 199 ₽</b></p>
+    </div>
+</div>
 
 <div className="placeholrer-guarantee">
     <Award width="24" height="24" />
@@ -142,15 +238,14 @@ return  <div className="">
 
 
 	</div>
-					
-					{/* <div className="">
-						{Math.ceil(data.price * (100 - data.discount) / 100)} ₽
-					</div> */}
-<Col xs={12}>
-	<Table>
-		<tbody>
+{/* <div className="">
+{Math.ceil(data.price * (100 - data.discount) / 100)} ₽
+</div> */}
+<div className="rew-container">
+	<div className="rew-wrapper">
+		<div className="table">
 			{tableInfo.map((el, i) => <tr key={i}>
-			<th className="fw-normal text-secondary small w-25" >{el.text}</th>
+			<h5 className="text-rew" >{el.text}</h5>
 			<td>{el.name === "author"
 			? <>
 			<span className="me-3">Имя: {data[el.name].name}</span>
@@ -159,9 +254,9 @@ return  <div className="">
 			: data[el.name]
 			}</td>
 			</tr>)}
-		</tbody>
-	</Table>
-</Col>
+		</div>
+	</div>
+</div>
 					
 
 {data.reviews.length > 0 ? <Col xs={12}>
@@ -260,6 +355,6 @@ return  <div className="">
 </Col>
 }
 </div>
-</div>
+
 }
 export default Product;

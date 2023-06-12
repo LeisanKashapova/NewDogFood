@@ -38,6 +38,10 @@ const Basket = ({}) => {
         setBasket(prev => prev.filter(el => el.id !== id))
     }
     
+    const clearBasket = (id) => {
+        setBasket(prev => [])
+    }
+
     const inBas = basket.length > 0;
 
     const ShowNothing = () => {
@@ -54,7 +58,7 @@ const Basket = ({}) => {
             </div>
         )
     }
-    //  const clearAll = ""
+   
     
 
     return (
@@ -62,8 +66,10 @@ const Basket = ({}) => {
         inBas ? 
             (<Container style={{gridTemplateColumns: "1fr"}}>
                 <BackBtn />
+        {basket.length > 0
+        ? <>        
         <h3>Корзина</h3>
-        <tr><button onClick={() => del(ids)}>Очистить корзину</button></tr>
+        
         <Table>
             <tbody>
                 {basket.map(el => <tr key={el.id}>
@@ -83,7 +89,7 @@ const Basket = ({}) => {
                                 onClick={() => dec(el.id)}
                             >-</Button>
                             <Button variant="light" disabled>{el.cnt}</Button>
-                            {/* При заказе товара, следует ограничить число в соответствии с кол-вом на складе */}
+{/* При заказе товара, следует ограничить число в соответствии с кол-вом на складе */}
                             <Button variant="warning" onClick={() => inc(el.id)}>+</Button>
                         </ButtonGroup>
                     </td>
@@ -117,6 +123,9 @@ const Basket = ({}) => {
                 </tr>
             </tfoot>
         </Table>
+        <Button variant="warning" onClick={clearBasket}>Очистить корзину</Button>
+        </>
+        : <h1>В корзине пусто</h1>}
     </Container>)
     : ShowNothing()
         
