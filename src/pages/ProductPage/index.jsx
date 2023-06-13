@@ -4,7 +4,7 @@ import { Star, Truck, Award, StarFill, Basket2, Plus, SuitHeartFill, SuitHeart, 
 import { getEnding, getRate } from "../../utilities/utilities";
 import BackBtn from "../../components/BackBtn";
 import {Container, Row, Col, Table, Card, Button, Form, ButtonGroup} from "react-bootstrap";
-
+import "./style.css";
 import Ctx from "../../ctx";
 
 const Product = () => {

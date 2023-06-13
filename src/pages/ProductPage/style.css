@@ -2,6 +2,7 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 10px;
+   
 }
 /* .productPage {
     display: grid;
@@ -9,6 +10,7 @@
 .rating-wrapper {
     display: flex;
     gap: 10px;
+   
 }
 
 .product___rating {
@@ -120,11 +122,11 @@
     color: #1A1A1A;
 }
 .rew-container {
-    background-color: #FFE44D;
+   
 }
 .rew-wrapper {
-    background-color: aqua;
+   
 }
 .table {
-    background-color: #cf9d9a;
+   
 }
