@@ -7,6 +7,7 @@ import {Container, Row, Col, Table, Card, Button, Form, ButtonGroup} from "react
 import "./style.css";
 import Ctx from "../../ctx";
 
+
 const Product = () => {
 	const { id } = useParams()
 	const { api, userId, setBaseData, goods, setGoods, basket, setBasket } = useContext(Ctx);
@@ -114,25 +115,47 @@ const Product = () => {
 			setBasket(prev => prev.filter(el => el.id !== id))
 		}
 
-return  <div className="product">
+return  <div className="first-wrap">
 	
-	
-	<BackBtn />
+<BackBtn />
+
 	{data.name
 	? <>
-	{data.author._id === userId && <Basket2 onClick={delHandler}/>}
-	<h1 className="product__name">{data.name}</h1>
+<div className="title-wrap">
+	{/* {data.author._id === userId && <Basket2 onClick={delHandler}/>} */}
+	<h4 className="product__name">{data.name}</h4>
 	<div className="rating-wrapper">
-	<span>Артикул: </span>
+	<span>Рейтинг: </span>
     <span className="product___rating">{[...stars]}</span>
 	<span>{!!data.reviews ? `${data.reviews.length} отзыв${getEnding(data.reviews.length)}` 
 	: "Ещё нет отзывов"}</span>
     </div>
+</div>
 
-	<div className="info-wrapper">
-		<div className="pruduct-wrapper">
+	{/* <div className="info-wrapper"> */}
+	<div className='second-wrap'>
+		<div className="product__img-wrapper">
 		<img className="product__img" src={data.pictures} alt={data.name} />
 		</div>
+<div className="delivery">
+		<div className="placeholrer-delivery">
+    <Truck width="24" height="24" />
+    <div className="placeholrer-delivery__text">
+        <h6>Доставка по всему Миру!</h6>
+        <p>Доставка курьером — <b>от 399 ₽</b></p>
+        <p>Доставка в пункт выдачи — <b>от 199 ₽</b></p>
+    </div>
+</div>
+
+<div className="placeholrer-guarantee">
+    <Award width="24" height="24" />
+    	<div className="placeholrer-guarantee__text">
+    		<h6>Гарантия качества</h6>
+     			<p>Если Вам не понравилось качество нашей продукции, мы вернем деньги, либо сделаем все возможное, чтобы удовлетворить ваши нужды.</p>
+    	</div>
+</div>
+</div>
+
 		<div className="pruduct-action-wrapper">
 		{!!data.discount ? 
 		<span className="product__old-price">{data.price} ₽</span> 
@@ -143,28 +166,37 @@ return  <div className="product">
 			{data.price - (data.price * data.discount) / 100} ₽</span> 
 			: <span className="product__price black">
 				{data.price - (data.price * data.discount) / 100} ₽</span>}
-				{/* <div className="pruduct-action-buttons">
-				<div className="product__quantity-counter">
-					<button className="quantity-counter-btn">-</button>
-         				<span>0</span>
-         			<button className="quantity-counter-btn">+</button>	
-				</div>
-				<button className="product__card-btn">В корзину</button>
-				</div> */}
+		</div>	
 
+				{/* {basket.map((el) => el.id === id &&				 */}
+<div className='first-buttons'>
+    {/* <div className='ctn-bt'>
+        <button className='quantity-counter-btn'>-</button>
+            <span>0</span>
+            <button className='quantity-counter-btn'>+</button>
+    </div> */}
+	
+	<Button className="ustala" onClick={addToBasket} disabled={inBasket}>
+	{!inBasket
+	? "Добавить в корзину"
+	: "В корзине"
+	}
+	</Button> 
+			{/* <Trash3 onClick={() => del(el.id)} style={{ cursor: "pointer" }} /> */}
+</div>
+ {/* )} */}
+</div>
 
-
-
-{basket.map((el) => el.id === id &&
-	<Table>
-		<thead>
+{/* {basket.map((el) => el.id === id &&
+	<div className="rew-wrapp">
+		<div className="basket">
 			<tr >
 				<td>Количество товара в корзине</td>
 				<td >Удалить</td>
 				<td >Цена товара</td>
 				<td >Сумма со скидкой</td>
 			</tr>
-		</thead>
+		</div>
 	<tbody>
 		<tr>
 		<td className="align-middle">
@@ -195,75 +227,60 @@ return  <div className="product">
 		</td>
 </tr>
 </tbody>
-</Table>
+</div>
 )}
 <Button
 	onClick={addToBasket}
 	variant="warning"
 	disabled={inBasket}
+	className="btn-basket"
 	>
 {!inBasket
 ? "Добавить в корзину"
 : "В корзине"
 }
-</Button>
+</Button> */}
 
 
 
-<div className="product-favorite">
+{/* <div className="product-favorite"></div> */}
 {/* <span onClick={() => setLike(_id, isLiked)}>
     <Like fill={isLiked ? "red" : "none"}/> В избранное</span> */}
 {/* {userId && <span className="card-like" onClick={likeHandler}>
   {isLiked ? <SuitHeartFill/> : <SuitHeart/>}
   </span>} */}
-</div>
-
-<div className="placeholrer-delivery">
-    <Truck width="24" height="24" />
-    <div className="placeholrer-delivery__text">
-        <h3>Доставка по всему Миру!</h3>
-        <p>Доставка курьером — <b>от 399 ₽</b></p>
-        <p>Доставка в пункт выдачи — <b>от 199 ₽</b></p>
-    </div>
-</div>
-
-<div className="placeholrer-guarantee">
-    <Award width="24" height="24" />
-    	<div className="placeholrer-guarantee__text">
-    		<h3>Гарантия качества</h3>
-     			<p>Если Вам не понравилось качество нашей продукции, мы вернем деньги, либо сделаем все возможное, чтобы удовлетворить ваши нужды.</p>
-    	</div>
-</div>
-</div>
 
 
-	</div>
-{/* <div className="">
-{Math.ceil(data.price * (100 - data.discount) / 100)} ₽
-</div> */}
+
+
+
+
+	{/* </div> */}
+	
+
 <div className="rew-container">
 	<div className="rew-wrapper">
 		<div className="table">
-			{tableInfo.map((el, i) => <tr key={i}>
-			<h5 className="text-rew" >{el.text}</h5>
-			<td>{el.name === "author"
+			{tableInfo.map((el, i) => <p className="oop" key={i}>
+			<p className="text-rew" >{el.text}</p>
+			<p>{el.name === "author"
 			? <>
-			<span className="me-3">Имя: {data[el.name].name}</span>
-			<span>Адрес: {data[el.name].email}</span>
+			<p className="text-rew">Имя: {data[el.name].name}</p>
+			<p className="text-rew">Адрес: {data[el.name].email}</p>
 			</>
 			: data[el.name]
-			}</td>
-			</tr>)}
+			}</p>
+			</p>)}
 		</div>
 	</div>
 </div>
 					
 
-{data.reviews.length > 0 ? <Col xs={12}>
-	<h2>Отзывы</h2>
-		<Row className="g-3">
-			{data.reviews.map(el => <Col xs={12} sm={6} md={4} key={el._id}>
-			<Card className="h-100">
+{data.reviews.length > 0 ? <div className="rew-wrapper-container">
+	<h5>Отзывы</h5>
+		<div className="rew-table">
+			{data.reviews.map(el => <div key={el._id}>
+			<div className="wer">
 			<Card.Body>
 			<span className="d-flex w-100 align-items-center mb-2">
 			<span style={{
@@ -287,20 +304,19 @@ return  <div className="product">
 	<Basket2 onClick={() => delReview(el._id)}/>
 </span>}
 </Card.Body>
-</Card>
-</Col>
+</div>
+</div>
 )}
 	{hideForm && <Col>
 	<Button
-		variant="outline-info"
-		className="fs-1 w-100 h-100"
+		className="add-rew"
 		onClick={() => setHideForm(false)}
 		>
 		<Plus/>
 	</Button>
 </Col>}
-</Row>
-</Col>
+</div>
+</div>
 : hideForm && <Col>
 <Button variant="outline-info" onClick={() => setHideForm(false)}>
 	Написать отзыв</Button></Col>

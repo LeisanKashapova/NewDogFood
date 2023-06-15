@@ -5,7 +5,7 @@
 // import Ctx from "../../ctx";
 
 
-// const Card = ({
+// const OneCard = ({
 //     discount,
 //     likes,
 //     name,
@@ -62,4 +62,4 @@
 //         <Link to={`/product/${_id}`} className="card-link"></Link>
 //     </div>
 // }
-// export default Card;
+// export default OneCard;
