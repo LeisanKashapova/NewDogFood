@@ -1,9 +1,9 @@
 import {useState, useEffect, useContext} from "react";
 import {useParams, Link, useNavigate} from "react-router-dom";
-import { Star, Truck, Award, StarFill, Basket2, Plus, SuitHeartFill, SuitHeart, Trash3 } from "react-bootstrap-icons";
+import { Star, Truck, Award, StarFill, Basket2, SuitHeartFill, SuitHeart, Trash3 } from "react-bootstrap-icons";
 import { getEnding, getRate } from "../../utilities/utilities";
 import BackBtn from "../../components/BackBtn";
-import {Container, Row, Col, Table, Card, Button, Form, ButtonGroup} from "react-bootstrap";
+// import {Container, Row, Col, Table, Card, Button, Form, ButtonGroup} from "react-bootstrap";
 import "./style.css";
 import Ctx from "../../ctx";
 
@@ -20,15 +20,15 @@ const Product = () => {
 	const navigate = useNavigate();
 	const tableInfo = [
 		{
-			name:"wight",
+			name: "wight",
 			text: "Вес"
 		},
 		{
-			name:"author",
+			name: "author",
 			text: "Продавец"
 		},
 		{
-			name:"description",
+			name: "description",
 			text: "Описание товара"
 		}
 	]
@@ -115,6 +115,10 @@ const Product = () => {
 			setBasket(prev => prev.filter(el => el.id !== id))
 		}
 
+// const ReviewsList = () => {
+// 	return ()}
+
+
 return  <div className="first-wrap">
 	
 <BackBtn />
@@ -176,12 +180,12 @@ return  <div className="first-wrap">
             <button className='quantity-counter-btn'>+</button>
     </div> */}
 	
-	<Button className="ustala" onClick={addToBasket} disabled={inBasket}>
+	<button className="btn-add-basket" onClick={addToBasket} disabled={inBasket}>
 	{!inBasket
 	? "Добавить в корзину"
 	: "В корзине"
 	}
-	</Button> 
+	</button> 
 			{/* <Trash3 onClick={() => del(el.id)} style={{ cursor: "pointer" }} /> */}
 </div>
  {/* )} */}
@@ -250,38 +254,44 @@ return  <div className="first-wrap">
   {isLiked ? <SuitHeartFill/> : <SuitHeart/>}
   </span>} */}
 
-
-
-
-
-
-	{/* </div> */}
+{/* </div> */}
 	
 
-<div className="rew-container">
-	<div className="rew-wrapper">
-		<div className="table">
-			{tableInfo.map((el, i) => <p className="oop" key={i}>
-			<p className="text-rew" >{el.text}</p>
-			<p>{el.name === "author"
-			? <>
-			<p className="text-rew">Имя: {data[el.name].name}</p>
-			<p className="text-rew">Адрес: {data[el.name].email}</p>
-			</>
-			: data[el.name]
-			}</p>
-			</p>)}
-		</div>
-	</div>
+<div className="description-container">
+	{tableInfo.map((el, i) => 
+		<div className="description-style" key={i}>
+			<p>{el.text}</p>
+				<p>{el.name === "author"
+				? <>
+				<p>Имя: {data[el.name].name}</p>
+				<p>Адрес: {data[el.name].email}</p>
+				</>
+				: data[el.name]
+				}</p>
+		</div>)}
 </div>
 					
 
-{data.reviews.length > 0 ? <div className="rew-wrapper-container">
+{data.reviews.length > 0 ? 
+<div className="rew-wrapper-container">
+	<div>
 	<h5>Отзывы</h5>
-		<div className="rew-table">
+
+	{hideForm && <div>
+	<button
+		className="add-rew"
+		onClick={() => setHideForm(false)}
+		>
+		Добавить отзыв
+	</button>
+</div>}
+</div>
+
+
+<div className="rew-table">
 			{data.reviews.map(el => <div key={el._id}>
 			<div className="wer">
-			<Card.Body>
+			<div className="">
 			<span className="d-flex w-100 align-items-center mb-2">
 			<span style={{
 				width: "30px",
@@ -298,35 +308,33 @@ return  <div className="first-wrap">
 <span>{el.author.name}</span>
 </span>
 
-<Card.Title>{el.rating}</Card.Title>
-<Card.Text className="fs-6 text-secondary">{el.text}</Card.Text>
-	{el.author._id === userId && <span className="text-danger position-absolute end-0 bottom-0 pe-3 pb-2">
+<span>{el.rating}</span>
+<p className="fs-6 text-secondary">{el.text}</p>
+	{el.author._id === userId && 
+	<div className="">
 	<Basket2 onClick={() => delReview(el._id)}/>
-</span>}
-</Card.Body>
+</div>}
+</div>
 </div>
 </div>
 )}
-	{hideForm && <Col>
-	<Button
-		className="add-rew"
-		onClick={() => setHideForm(false)}
-		>
-		<Plus/>
-	</Button>
-</Col>}
+	
 </div>
+
+
+
 </div>
-: hideForm && <Col>
-<Button variant="outline-info" onClick={() => setHideForm(false)}>
-	Написать отзыв</Button></Col>
+: hideForm && <div>
+<button className="add-review" onClick={() => setHideForm(false)}>
+	Написать отзыв</button></div>
 }
-	{!hideForm && <Col xs={12} className="mt-5">
+	{!hideForm && <div className="new-review">
 		<h3>Новый отзыв</h3>
-		<Form onSubmit={addReview}>
-		<Form.Group className="mb-3">
-		<Form.Label htmlFor="rating">Рейтинг (0-5)</Form.Label>
-		<Form.Control
+		<span onSubmit={addReview}>
+		<span className="">
+			<input></input>
+		<span htmlFor="rating">Рейтинг (0-5)</span>
+		<div className=""
 			type="number"
 			min={1}
 			max={5}
@@ -335,40 +343,41 @@ return  <div className="first-wrap">
 			value={revRating}
 			onChange={(e) => setRevRating(+e.target.value)}
 			/>
-		</Form.Group>
-		<Form.Group  className="mb-3">
+		</span>
+		<div className="">
 
-<Form.Label htmlFor="text">Комментарий:</Form.Label>
-<Form.Control
+<div htmlFor="text">Комментарий:</div>
+<input></input>
+<div className=""
 	as="textarea"
 	type="text"
 	id="text"
 	value={revText}
-	rows={3}
+	
 	onChange={(e) => setRevText(e.target.value)}
 	/>
-</Form.Group>
+</div>
 
-<Button
+<button
 	type="reset"
-	className="me-2"
+	className="btn-reset-rev"
 	onClick={(e) => {
 	e.preventDefault();
 	setRevText("");
 	setRevRating(0);
 	setHideForm(true);
 }}
-	>Отмена</Button>
+	>Отмена</button>
 
-<Button type="submit">Добавить</Button>
-</Form>
-</Col>}
+<button className="btn-reset-rev" type="submit">Добавить</button>
+</span>
+</div>}
 </>
-: <Col xs={12}>
+: <div>
 	<div className="info" style={{textAlign: "center"}}>
 		Товара {id} не существует<br/>или<br/>он еще не загружен
 	</div>
-</Col>
+</div>
 }
 </div>
 

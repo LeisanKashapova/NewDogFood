@@ -3,7 +3,6 @@
     width: 100%;
     height: 100%;
     flex: 1;
-    
 }
 .product__img {
     width: 100%;
@@ -13,7 +12,6 @@
     margin-top: 10px;
     margin-bottom: 20px;
     padding: 20px 20px;
-    
     display: grid;
     grid-template-columns: 3fr 3fr;
     gap: 20px;
@@ -21,17 +19,12 @@
     border-radius: 25px;
     max-width: 1050px;
 }
-/* .info-wrapper {
-    display: grid;
-    gap: 40px;
-} */
 .first-wrap {
     margin-left: 100px;
     gap: 10px;
 }
 .product__name{
-   
-    margin: 0;
+   margin: 0;
 }
 .rating-wrapper {
     display: flex;
@@ -44,9 +37,7 @@
 .pruduct-action-wrapper {
     display: grid;
     gap: 20px;
-    /* max-width: 150px; */
 }
-
 .product__old-price {
     text-decoration-line: line-through;
 }
@@ -59,14 +50,19 @@
 .red {
     color: #F44336;
 }
-
 .black {
     color: #1A1A1A;
 }
-.ustala {
-    background-color: #ffe44d;
+.btn-add-basket {
+    background-color: white;
+    box-shadow: 1px 4px 8px 0px #b0b0b0;
+    padding: 10px 10px;
     border-radius: 25px;
-    
+    border: none;
+}
+.first-buttons {
+    display: flex;
+    gap: 16px;
 }
 .rew-wrapp {
     display: grid;
@@ -75,28 +71,28 @@
 .basket {
     display: grid;
 }
-.rew-container {
+/* характеристики*/
+.description-container {
     padding: 20px 20px;
     box-shadow: 1px 4px 8px 0px #b0b0b0;
     border-radius: 25px;
     max-width: 1050px;
+    margin-bottom: 20px;
 }
-.table {
-    display: grid;
-    
-    gap: 10px;
-}
-.oop {
+.description-style {
     display: grid;
     grid-template-columns: 200px 2fr;
     margin: 0;
     font-size: 15px;
     max-width: 1050px;
 }
-.text-rew {
+/* .text-rew {
+    display: grid;
+    align-items: center;
     margin: 0;
     font-size: 15px;
-}
+    padding: 0;
+} */
 
 
 
@@ -105,10 +101,7 @@
 
 
 
-.first-buttons {
-    display: flex;
-    gap: 16px;
-}
+
 
 .inc-dec {
     display: flex;
@@ -174,15 +167,6 @@
 .placeholrer-guarantee__text {
     max-width: 330px;
 }
-
-
-
-.rew-container {
-   
-}
-.rew-wrapper {
-   
-}
 .rew-table {
    display: grid;
    grid-template-columns: 3fr 3fr;
@@ -209,4 +193,29 @@
 .add-rew {
     background-color: #FFE44D;
     border-radius: 25px;
+}
+.add-review {
+    background-color: white;
+    box-shadow: 1px 4px 8px 0px #b0b0b0;
+    padding: 10px 10px;
+    border-radius: 25px;
+    border: none;
+    margin-bottom: 20px;
+}
+.new-review {
+    display: grid;
+    gap: 10px;
+}
+.btn-reset-rev {
+    display: flex;
+    flex-direction: column;
+    width: 120px;
+    gap: 10px;
+    background-color: white;
+    box-shadow: 1px 4px 8px 0px #b0b0b0;
+    padding: 10px 10px;
+    border-radius: 20px;
+    border: none;
+    margin-bottom: 20px;
+    margin-top: 20px;
 }

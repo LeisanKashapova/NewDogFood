@@ -1,15 +1,15 @@
 import {useNavigate, Link} from "react-router-dom";
 import {useContext, useEffect, useState} from "react";
 import Ctx from "../ctx";
-import {Button, Container, Row, Col, Figure} from "react-bootstrap";
+import {Button, Container, Row, Col, Figure, PencilSquare} from "react-bootstrap";
 import UpdatedInput from "../components/UpdatedInput";
 import BsCard from "../components/BsCard";
 import BackBtn from "../components/BackBtn";
 const Profile = ({setUser}) => {
     const navigate = useNavigate()
-    const { api, baseData } = useContext(Ctx);
+    const { api, baseData, userId, user } = useContext(Ctx);
 	const [userData, setUserData] = useState({});
- 
+	const myProfile = user._id === userId;
 	const [inpName, setInpName] = useState(false);
 	// const [inpEmail, setInpEmail] = useState(false);
 	const [inpAbout, setInpAbout] = useState(false);
@@ -86,6 +86,8 @@ const Profile = ({setUser}) => {
 			<Row>
 				<Col xs={12}>
 					<h3>Мои товары</h3>
+					{/* <PencilSquare className='editProfile'
+                            onClick={() => setActiveModal('avatar')}/> */}
 				</Col>
 				{baseData.filter(el => el.author._id === userData._id).map(el => <Col xs={6} md={3} key={el._id}>
 					<BsCard {...el}/>
