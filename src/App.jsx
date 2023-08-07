@@ -158,8 +158,7 @@ const App = () => {
              />
     }/>
     
-    <Route path="/profile" element={
-        <Profile user={user} setUser={setUser}/>}/>
+    <Route path="/profile" element={<Profile user={user} setUser={setUser}/>}/>
     <Route path="/product/:id" element={<Product />}/>
     <Route path="/add/product" element={<AddProduct/>}/>
     <Route path="/favorites" element={<Favorites />}/>

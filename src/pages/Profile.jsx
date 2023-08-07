@@ -9,7 +9,7 @@ const Profile = ({setUser}) => {
     const navigate = useNavigate()
     const { api, baseData, userId, user } = useContext(Ctx);
 	const [userData, setUserData] = useState({});
-	const myProfile = user._id === userId;
+	// const myProfile = user._id === userId;
 	const [inpName, setInpName] = useState(false);
 	// const [inpEmail, setInpEmail] = useState(false);
 	const [inpAbout, setInpAbout] = useState(false);
