@@ -8,8 +8,8 @@ const NotFound = ({ buttonText, buttonPath }) => {
         <div className="searhNotFound">
             <EmojiFrown width="100" height="100" />
             <h2>Такой страницы не существует</h2>
-            <Link to={buttonPath}>
-                <button className="searhNotFound__button">{buttonText}</button>
+            <Link to="/">
+                <button className="basket-catalog">На главную</button>
             </Link>
         </div>
     )
