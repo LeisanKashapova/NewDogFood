@@ -48,7 +48,7 @@ return <header>
         </div>
         <nav className="header__menu">
  
-           {/* {user && <> */}
+           {user && <>
              <Link to="/favorites" className="header__link">
              <Favorite title="Избранное"/>
             <span className="favorite__babble">{likeCnt}</span>
@@ -63,10 +63,10 @@ return <header>
          <Link to="/profile">
              <Profile title="Личный кабинет" />
              </Link>
-             {/* </>
-           } */}
+             </>
+           }
 <span>
-{/* {!user && <BoxArrowInRight title="Войти" onClick={login} />} */}
+{!user && <BoxArrowInRight title="Войти" onClick={login} />}
 </span>  
         </nav>
        
