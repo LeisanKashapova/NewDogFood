@@ -50,13 +50,13 @@ return (
 			<Promo {...addsData[4]}/>
 			</div>
 
-{news.length > 0 && <div className="news-container">
+{/* {news.length > 0 && <div className="news-container">
         <Carousel
          data={news.map((el, i) => <News key={`new-${i}`} data={el} isTitled={true} />)}
          cnt={window.innerWidth < 765 ? 3 : 4}
             />
- </div>}
-
+ </div>} */}
+ <Slider desktop={3} mobile={2}/>
 
 </div>
 	)
