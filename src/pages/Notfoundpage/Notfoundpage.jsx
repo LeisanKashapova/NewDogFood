@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { EmojiFrown } from "react-bootstrap-icons";
 import "./style.css"
 
-const NotFound = ({ buttonText, buttonPath }) => {
+const NotFound = () => {
     return (
         <div className="searhNotFound">
             <EmojiFrown width="100" height="100" />

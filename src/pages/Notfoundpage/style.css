@@ -20,3 +20,15 @@
     font-size: 16px;
     color: #1A1A1A;
 }
+.basket-catalog {
+    background-color: rgb(236, 205, 27);
+    border-radius: 25px;
+    border: none;
+    box-shadow:  0 8 0 8;
+    padding: 10px 15px 10px 15px;
+    box-shadow: 10px 5px 5px rgb(84, 97, 8);
+}
+.basket-catalog:hover{
+    background-color: #ffe44d;
+    box-shadow: 5px 5px 5px brown;
+}
