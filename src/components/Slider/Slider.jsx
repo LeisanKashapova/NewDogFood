@@ -2,7 +2,6 @@ import {useState, useContext, useEffect} from "react";
 import {Row, Col, Carousel, Container} from "react-bootstrap";
 import BsCard from "../BsCard";
 import Ctx from "../../ctx";
-
 import "./Slider.css";
 
 const Slider = ({desktop = 4, mobile = 2}) => {

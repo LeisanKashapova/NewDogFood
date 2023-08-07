@@ -23,11 +23,13 @@ return (
 			<p>Всегда свежие лакомства ручной работы с доставкой по России и миру</p>
 			{user && <Link to="/catalog" className="info-link">
 			<button className="catalog">Каталог <Journals/></button></Link>}
-			{!user && <>
-				<span className="info-link" 
-				onClick={() => setActive(true)}>Авторизуйтесь, чтобы получить доступ к сайту</span></>}
+			
 	</div>
 </div>
+{!user && <>
+				<span className="info-link-auth" 
+				onClick={() => setActive(true)}>Авторизуйтесь, чтобы получить доступ к сайту</span></>}
+
 
 <div className="banner-wrap">
 	<BannerTop />
@@ -41,7 +43,7 @@ return (
 			<Promo {...addsData[1]}/>
 			</div>
 
-<div className="banner-wrap">
+<div className="banner-wrap-bottom">
 	<BannerBottom />
 </div> 
 
@@ -56,8 +58,9 @@ return (
          cnt={window.innerWidth < 765 ? 3 : 4}
             />
  </div>} */}
- <Slider desktop={3} mobile={2}/>
 
+ <Slider desktop={3} mobile={2}/>
+ 
 </div>
 	)
 }

@@ -11,13 +11,16 @@ header {
 .header__logo svg {
     width: 200px;
     height: 56px;
+    margin-left: 100px;
 }
 
 header .search-block {
     display: flex;
     flex-grow: 1;
     justify-content: center;
+    align-items: center;
     width: 50%;
+   
 }
 
 .header__babble {
@@ -115,6 +118,7 @@ h3 {
     header {
       padding: 6px 10px;
       flex-wrap: no-wrap;
+      
     }
     header .search-block {
       order: 0;
@@ -135,6 +139,125 @@ h3 {
         width: 15px;
        
         margin: 5px;
+        flex-grow: 1;
+      
+    }
+    .header__menu,
+    .header__menu>span {
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.header__babble {
+    font-size: 7px;
+    line-height: 8px;
+    padding: 4px 6px;
+    border-radius: 20px;
+}
+.favorite__babble {
+    right: 70px;
+    font-size: 7px;
+    line-height: 8px;
+    padding: 4px 6px;
+    border-radius: 30px;
+}
+/*FOOTER*/
+.footer {
+    margin-left: 0;
+    padding: 15px 25px;
+}
+.footer__logo {
+   
+    margin-left: 0;
+}
+.footer__logo svg {
+    /* padding: 10px; */
+    width: 150px;
+    height: 36px;
+    /* margin: 5px; */
+    /* flex-grow: 1; */
+      
+    }  
+.gap_nav {
+    display: flex;
+    gap: 20px;
+ }  
+
+span {
+    margin: 0;
+    font-size: 15px;
+}
+.footer__nav-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 7px;
+}
+.footer__nav a {
+    text-decoration: none;
+    color: #1A1A1A;
+    font-size: 15px;
+}
+.footer__nav-list a {
+    text-decoration: none;
+    color: #1A1A1A;
+    font-size: 15px;
+}
+.footer__nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 7px;
+}
+.footer__contacts {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.footer__contacts a {
+    text-decoration: none;
+    color: #1A1A1A;
+}
+.footer__contacts 
+h3 {
+    margin: 0;
+    font-size: 15px;
+}
+.footer__contacts-social {
+    display: flex;
+    gap: 8px;
+}
+}
+
+/*IPHONE SE*/
+/* MOBILE*/
+@media (max-width: 375px){
+    header {
+      padding: 4px 7px;
+      flex-wrap: no-wrap;
+      
+    }
+    header .search-block {
+      order: 0;
+      width: 40%;
+      flex-grow: 0;
+    }
+    .header__logo svg {
+        padding: 10px;
+        width: 150px;
+        height: 56px;
+        margin: 0;
+        flex-grow: 1;
+      
+    }
+    
+    .header__logo  {
+        padding: 0;
+        width: 15px;
+       
+        margin: 0;
         flex-grow: 1;
       
     }

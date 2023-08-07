@@ -12,7 +12,7 @@ import Profile from "./pages/Profile";
 import Product from "./pages/ProductPage/index";
 import AddProduct from "./pages/AddProduct";
 import Favorites from "./pages/Favorites/Favorite";
-import Notfoundpage from "./pages/Notfoundpage/Notfoundpage";
+import Notfound from "./pages/Notfoundpage/Notfoundpage";
 import Basket from "./components/Basket";
 import staticNews from "./assets/data/news.json";
 import inFavorites from "./pages/Favorites/Favorite";
@@ -51,29 +51,29 @@ const App = () => {
     const [news, setNews] = useState(n1 || []);
     const [newsLenta, setNewsLenta] = useState(n2 || []);
 
-    useEffect(() => {
-        if (process.env.NODE_ENV === "development") {
-            if (!news.length) {
-                fetch(`https://newsapi.org/v2/everything?q=собаки&apiKey=${process.env.REACT_APP_NEWS_KEY}`)
-                    .then(res => res.json())
-                    .then(data => {
-                        const result = data.articles.filter(el => el.source.name === "Techinsider.ru")
-                        sessionStorage.setItem("dogs-news", JSON.stringify(result));
-                        setNews(result);
-                    })
-            }
-            if (!newsLenta.length) {
-                fetch(`https://newsapi.org/v2/everything?q=собаки&sources=lenta&apiKey=${process.env.REACT_APP_NEWS_KEY}`)
-                    .then(res => res.json())
-                    .then(data => {
-                        sessionStorage.setItem("lenta-news", JSON.stringify(data.articles));
-                        setNewsLenta(data.articles);
-                    })
-            }
-        } else {
-            setNews(staticNews);
-        }
-    }, []);
+    // useEffect(() => {
+    //     if (process.env.NODE_ENV === "development") {
+    //         if (!news.length) {
+    //             fetch(`https://newsapi.org/v2/everything?q=собаки&apiKey=${process.env.REACT_APP_NEWS_KEY}`)
+    //                 .then(res => res.json())
+    //                 .then(data => {
+    //                     const result = data.articles.filter(el => el.source.name === "Techinsider.ru")
+    //                     sessionStorage.setItem("dogs-news", JSON.stringify(result));
+    //                     setNews(result);
+    //                 })
+    //         }
+    //         if (!newsLenta.length) {
+    //             fetch(`https://newsapi.org/v2/everything?q=собаки&sources=lenta&apiKey=${process.env.REACT_APP_NEWS_KEY}`)
+    //                 .then(res => res.json())
+    //                 .then(data => {
+    //                     sessionStorage.setItem("lenta-news", JSON.stringify(data.articles));
+    //                     setNewsLenta(data.articles);
+    //                 })
+    //         }
+    //     } else {
+    //         setNews(staticNews);
+    //     }
+    // }, []);
 
 
     
@@ -162,7 +162,7 @@ const App = () => {
     <Route path="/product/:id" element={<Product />}/>
     <Route path="/add/product" element={<AddProduct/>}/>
     <Route path="/favorites" element={<Favorites />}/>
-    <Route path="*" element={<Notfoundpage />} />
+    <Route path="*" element={<Notfound/>} />
     <Route path="/basket" element={<Basket/>}/>
 </Routes>
                
