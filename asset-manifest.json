@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/NewDogFood/static/css/main.5a30c68a.css",
-    "main.js": "/NewDogFood/static/js/main.8cfcfaca.js",
+    "main.js": "/NewDogFood/static/js/main.366cffee.js",
     "static/media/paws.jpg": "/NewDogFood/static/media/paws.83e4309d232b63b20890.jpg",
     "static/media/puppy.jpg": "/NewDogFood/static/media/puppy.0cebf73595cabfd96531.jpg",
     "static/media/dogs-arrows.jpg": "/NewDogFood/static/media/dogs-arrows.706b52dd4ae49efca806.jpg",
@@ -17,10 +17,10 @@
     "static/media/corgi6.png": "/NewDogFood/static/media/corgi6.17cb2db4d4cea7dbdd9f.png",
     "index.html": "/NewDogFood/index.html",
     "main.5a30c68a.css.map": "/NewDogFood/static/css/main.5a30c68a.css.map",
-    "main.8cfcfaca.js.map": "/NewDogFood/static/js/main.8cfcfaca.js.map"
+    "main.366cffee.js.map": "/NewDogFood/static/js/main.366cffee.js.map"
   },
   "entrypoints": [
     "static/css/main.5a30c68a.css",
-    "static/js/main.8cfcfaca.js"
+    "static/js/main.366cffee.js"
   ]
 }
